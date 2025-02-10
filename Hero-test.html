@@ -36,11 +36,11 @@
         display: flex;
         flex-direction: column;
         gap: 46px;
-        animation: scroll 10s linear infinite;
+        animation: scroll-up 10s both infinite;
       }
       .carousel-column:nth-child(1),
       .carousel-column:nth-child(3) {
-        animation-direction: reverse;
+        animation: scroll-down 10s both infinite;
       }
       .carousel-column img {
         width: 352px;
@@ -48,12 +48,20 @@
         border-radius: 10px;
         opacity: 0.7;
       }
-      @keyframes scroll {
+      @keyframes scroll-up {
         0% {
           transform: translateY(0);
         }
         100% {
           transform: translateY(-50%);
+        }
+      }
+      @keyframes scroll-down {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(50%);
         }
       }
       .overlay-text {
