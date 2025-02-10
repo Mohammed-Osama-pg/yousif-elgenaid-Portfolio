@@ -1,0 +1,32 @@
+/* !--------------------------Start Fonts---------------------------- */
+@font-face {
+  font-family: "centurygothic";
+  src: url(../fonts/centurygothic.ttf) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "centurygothic";
+  src: url(../fonts/centurygothic_bold.ttf) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "eurostar";
+  src: url(../fonts/eurostarblack.ttf) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+/* !--------------------------End Fonts---------------------------- */
+
+.font-test {
+  font-family: centurygothic;
+  font-weight: normal;
+}
+.font-test2 {
+  font-family: centurygothic;
+  font-weight: bold;
+}
+.font-test3 {
+  font-family: eurostar;
+}
