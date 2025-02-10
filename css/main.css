@@ -1,4 +1,4 @@
-/* !--------------------------Start Fonts---------------------------- */
+/* !-------------------------- Start Fonts ---------------------------- */
 @font-face {
   font-family: "centurygothic";
   src: url(../fonts/centurygothic.ttf) format("woff");
@@ -17,16 +17,28 @@
   font-weight: bold;
   font-style: normal;
 }
-/* !--------------------------End Fonts---------------------------- */
+/* !-------------------------- End Fonts ---------------------------- */
+/* !------------------------ Start Valuables --------------------- */
+:root {
+  /* *--------------colors------------ */
+  /* ?main colors */
+  --main-color: #d4a97d;
+  /* ?Text colors */
+  --main-text-color: #ffffff;
+  --second-text-color: #d8d8d8;
+  /* ?Background colors */
+  --main-background-color: #171515;
 
-.font-test {
-  font-family: centurygothic;
-  font-weight: normal;
+  /* *-------------- Fonts ------------ */
+  /* ?font family */
+  --heading-font: "eurostar";
+  --paragraph-font: "centurygothic";
+  /* ?font sizes */
+  --XX-large-size: 132px;
+  --X-large-size: 44px;
+  --large-size: 38px;
+  --medium-size: 32px;
+  --normal-size: 24px;
+  --small-size: 18px;
 }
-.font-test2 {
-  font-family: centurygothic;
-  font-weight: bold;
-}
-.font-test3 {
-  font-family: eurostar;
-}
+/* !------------------------ End Valuables --------------------- */
