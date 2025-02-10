@@ -35,14 +35,15 @@
       .carousel-column {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 46px;
         animation: scroll 10s linear infinite;
       }
-      .carousel-column:nth-child(2) {
+      .carousel-column:nth-child(1),
+      .carousel-column:nth-child(3) {
         animation-direction: reverse;
       }
       .carousel-column img {
-        width: 300px;
+        width: 352px;
         height: auto;
         border-radius: 10px;
         opacity: 0.7;
@@ -68,66 +69,49 @@
   </head>
   <body>
     <div class="container">
-      <div class="carousel">
-        <div class="carousel-column">
-          <img
-            src="https://img.freepik.com/free-photo/greyscale-shot-parametric-architecture-interior_181624-54989.jpg?t=st=1739202343~exp=1739205943~hmac=f1a16b824592c99d4e180a7c91afac72c6a8804af3d0fb36a95f5fda2135959a&w=900"
-            alt="Design 1"
-          />
-          <img
-            src="https://img.freepik.com/free-photo/brutalist-inspiration-architecture-background_23-2149162901.jpg?t=st=1739202341~exp=1739205941~hmac=183cd24f7c6fe975d0fddfed803ed0e9b0640af5760b117055a3da1c58def830&w=360"
-            alt="Design 2"
-          />
-          <img
-            src="https://img.freepik.com/premium-photo/3d-rendering-illustration-modern-house_62754-2739.jpg?w=900"
-            alt="Design 3"
-          />
-          <img
-            src="https://img.freepik.com/premium-photo/contemporary-triangle-shape-design-modern-architecture-building-exterior_146508-379.jpg?w=996"
-            alt="Design 4"
-          />
-        </div>
-        <div class="carousel-column">
-          <img
-            src="https://img.freepik.com/free-photo/greyscale-shot-parametric-architecture-interior_181624-54989.jpg?t=st=1739202343~exp=1739205943~hmac=f1a16b824592c99d4e180a7c91afac72c6a8804af3d0fb36a95f5fda2135959a&w=900"
-            alt="Design 1"
-          />
-          <img
-            src="https://img.freepik.com/free-photo/brutalist-inspiration-architecture-background_23-2149162901.jpg?t=st=1739202341~exp=1739205941~hmac=183cd24f7c6fe975d0fddfed803ed0e9b0640af5760b117055a3da1c58def830&w=360"
-            alt="Design 2"
-          />
-          <img
-            src="https://img.freepik.com/premium-photo/3d-rendering-illustration-modern-house_62754-2739.jpg?w=900"
-            alt="Design 3"
-          />
-          <img
-            src="https://img.freepik.com/premium-photo/contemporary-triangle-shape-design-modern-architecture-building-exterior_146508-379.jpg?w=996"
-            alt="Design 4"
-          />
-        </div>
-        <div class="carousel-column">
-          <img
-            src="https://img.freepik.com/free-photo/greyscale-shot-parametric-architecture-interior_181624-54989.jpg?t=st=1739202343~exp=1739205943~hmac=f1a16b824592c99d4e180a7c91afac72c6a8804af3d0fb36a95f5fda2135959a&w=900"
-            alt="Design 1"
-          />
-          <img
-            src="https://img.freepik.com/free-photo/brutalist-inspiration-architecture-background_23-2149162901.jpg?t=st=1739202341~exp=1739205941~hmac=183cd24f7c6fe975d0fddfed803ed0e9b0640af5760b117055a3da1c58def830&w=360"
-            alt="Design 2"
-          />
-          <img
-            src="https://img.freepik.com/premium-photo/3d-rendering-illustration-modern-house_62754-2739.jpg?w=900"
-            alt="Design 3"
-          />
-          <img
-            src="https://img.freepik.com/premium-photo/contemporary-triangle-shape-design-modern-architecture-building-exterior_146508-379.jpg?w=996"
-            alt="Design 4"
-          />
-        </div>
+      <div class="carousel" id="carousel">
+        <div class="carousel-column"></div>
+        <div class="carousel-column"></div>
+        <div class="carousel-column"></div>
       </div>
       <h1 class="overlay-text">
         <span class="highlight">SEE</span> a vision of the world <br />
         through the eyes of an <span class="highlight">architect</span>.
       </h1>
     </div>
+
+    <script>
+      async function fetchImages() {
+        // Assuming the images are in an 'images' folder
+        let imagePaths = [
+          "images/hero-imgs/hero-1.png",
+          "images/hero-imgs/hero-2.png",
+          "images/hero-imgs/hero-3.png",
+          "images/hero-imgs/hero-4.png",
+          "images/hero-imgs/hero-5.png",
+          "images/hero-imgs/hero-6.png",
+          "images/hero-imgs/hero-7.png",
+          "images/hero-imgs/hero-8.png",
+          "images/hero-imgs/hero-9.png",
+          "images/hero-imgs/hero-10.png",
+          "images/hero-imgs/hero-11.png",
+          "images/hero-imgs/hero-12.png",
+        ];
+
+        let columns = document.querySelectorAll(".carousel-column");
+        columns.forEach((column) => {
+          column.innerHTML = "";
+        });
+
+        for (let i = 0; i < imagePaths.length; i++) {
+          let img = document.createElement("img");
+          img.src = imagePaths[i];
+          img.alt = `Image ${i + 1}`;
+          columns[i % 3].appendChild(img);
+        }
+      }
+
+      fetchImages();
+    </script>
   </body>
 </html>
