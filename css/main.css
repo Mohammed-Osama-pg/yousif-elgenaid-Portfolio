@@ -56,9 +56,11 @@
 }
 html {
   scroll-behavior: smooth;
+  font-family: var(--paragraph-font);
+  color: var(--main-text-color);
 }
 body {
-  font-family: var(--paragraph-font);
+  background-color: var(--main-background-color);
 }
 ul {
   list-style: none;
@@ -81,6 +83,17 @@ img {
   object-fit: cover;
 }
 .container {
-  padding-inline: 32px;
+  padding-inline: 68px;
 }
 /* !------------------------ End Global rules --------------------- */
+/* !------------------------ Start the header --------------------- */
+header {
+  padding-block: 23px;
+}
+header .logo {
+  font-size: var(--small-size);
+  text-transform: uppercase;
+  font-family: var(--heading-font);
+  background-color: var(--main-background-color);
+}
+/* !------------------------ End the header --------------------- */
