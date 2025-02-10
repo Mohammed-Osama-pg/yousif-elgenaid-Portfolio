@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinite Vertical Carousel</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #111;
+        color: white;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+      }
+      .carousel {
+        opacity: 16%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        overflow: hidden;
+      }
+      .carousel-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        animation: scroll 10s linear infinite;
+      }
+      .carousel-column:nth-child(2) {
+        animation-direction: reverse;
+      }
+      .carousel-column img {
+        width: 300px;
+        height: auto;
+        border-radius: 10px;
+        opacity: 0.7;
+      }
+      @keyframes scroll {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-50%);
+        }
+      }
+      .overlay-text {
+        position: absolute;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+      }
+      .highlight {
+        color: #c18f5a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="carousel">
+        <div class="carousel-column">
+          <img
+            src="https://img.freepik.com/free-photo/greyscale-shot-parametric-architecture-interior_181624-54989.jpg?t=st=1739202343~exp=1739205943~hmac=f1a16b824592c99d4e180a7c91afac72c6a8804af3d0fb36a95f5fda2135959a&w=900"
+            alt="Design 1"
+          />
+          <img
+            src="https://img.freepik.com/free-photo/brutalist-inspiration-architecture-background_23-2149162901.jpg?t=st=1739202341~exp=1739205941~hmac=183cd24f7c6fe975d0fddfed803ed0e9b0640af5760b117055a3da1c58def830&w=360"
+            alt="Design 2"
+          />
+          <img
+            src="https://img.freepik.com/premium-photo/3d-rendering-illustration-modern-house_62754-2739.jpg?w=900"
+            alt="Design 3"
+          />
+          <img
+            src="https://img.freepik.com/premium-photo/contemporary-triangle-shape-design-modern-architecture-building-exterior_146508-379.jpg?w=996"
+            alt="Design 4"
+          />
+        </div>
+        <div class="carousel-column">
+          <img
+            src="https://img.freepik.com/free-photo/greyscale-shot-parametric-architecture-interior_181624-54989.jpg?t=st=1739202343~exp=1739205943~hmac=f1a16b824592c99d4e180a7c91afac72c6a8804af3d0fb36a95f5fda2135959a&w=900"
+            alt="Design 1"
+          />
+          <img
+            src="https://img.freepik.com/free-photo/brutalist-inspiration-architecture-background_23-2149162901.jpg?t=st=1739202341~exp=1739205941~hmac=183cd24f7c6fe975d0fddfed803ed0e9b0640af5760b117055a3da1c58def830&w=360"
+            alt="Design 2"
+          />
+          <img
+            src="https://img.freepik.com/premium-photo/3d-rendering-illustration-modern-house_62754-2739.jpg?w=900"
+            alt="Design 3"
+          />
+          <img
+            src="https://img.freepik.com/premium-photo/contemporary-triangle-shape-design-modern-architecture-building-exterior_146508-379.jpg?w=996"
+            alt="Design 4"
+          />
+        </div>
+        <div class="carousel-column">
+          <img
+            src="https://img.freepik.com/free-photo/greyscale-shot-parametric-architecture-interior_181624-54989.jpg?t=st=1739202343~exp=1739205943~hmac=f1a16b824592c99d4e180a7c91afac72c6a8804af3d0fb36a95f5fda2135959a&w=900"
+            alt="Design 1"
+          />
+          <img
+            src="https://img.freepik.com/free-photo/brutalist-inspiration-architecture-background_23-2149162901.jpg?t=st=1739202341~exp=1739205941~hmac=183cd24f7c6fe975d0fddfed803ed0e9b0640af5760b117055a3da1c58def830&w=360"
+            alt="Design 2"
+          />
+          <img
+            src="https://img.freepik.com/premium-photo/3d-rendering-illustration-modern-house_62754-2739.jpg?w=900"
+            alt="Design 3"
+          />
+          <img
+            src="https://img.freepik.com/premium-photo/contemporary-triangle-shape-design-modern-architecture-building-exterior_146508-379.jpg?w=996"
+            alt="Design 4"
+          />
+        </div>
+      </div>
+      <h1 class="overlay-text">
+        <span class="highlight">SEE</span> a vision of the world <br />
+        through the eyes of an <span class="highlight">architect</span>.
+      </h1>
+    </div>
+  </body>
+</html>
