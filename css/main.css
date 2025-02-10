@@ -42,3 +42,45 @@
   --small-size: 18px;
 }
 /* !------------------------ End Valuables --------------------- */
+/* !------------------------ Start Global rules --------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  user-select: none;
+}
+*:focus {
+  outline: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--paragraph-font);
+}
+ul {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  color: var(--main-text-color);
+}
+img {
+  height: 100%;
+  object-fit: cover;
+}
+.container {
+  padding-inline: 32px;
+}
+/* !------------------------ End Global rules --------------------- */
