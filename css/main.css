@@ -138,12 +138,14 @@ main.container {
   gap: 46px;
   position: absolute;
   animation: scroll-up 60s linear infinite;
+  animation-play-state: paused;
   opacity: 15%;
 }
 .carousel-column:nth-child(1),
 .carousel-column:nth-child(3) {
   bottom: 10px;
   animation: scroll-down 60s linear infinite;
+  animation-play-state: paused;
   display: none;
 }
 .carousel-column:nth-child(1) {
@@ -160,11 +162,37 @@ main.container {
   height: calc(82.5vw * 0.5625);
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
+  transition: 2s ease-in-out;
 }
 .carousel-column .img-holder img {
   width: 100%;
   object-fit: cover;
   opacity: 1;
+}
+.carousel-column:nth-child(2) .img-holder:not(:first-child) {
+  top: 110vh;
+}
+.carousel-column:nth-child(2) .img-holder:first-child {
+  top: -40vh;
+}
+.carousel-column:nth-child(1) .img-holder:not(:last-child),
+.carousel-column:nth-child(3) .img-holder:not(:last-child) {
+  bottom: 110vh;
+}
+.carousel-column:nth-child(1) .img-holder:last-child,
+.carousel-column:nth-child(3) .img-holder:last-child {
+  bottom: -40vh;
+}
+.carousel-column:nth-child(2) .img-holder:not(:first-child).active,
+.carousel-column:nth-child(2) .img-holder:first-child.active {
+  top: 0;
+}
+.carousel-column:nth-child(1) .img-holder:not(:last-child).active,
+.carousel-column:nth-child(3) .img-holder:not(:last-child).active,
+.carousel-column:nth-child(1) .img-holder:last-child.active,
+.carousel-column:nth-child(3) .img-holder:last-child.active {
+  bottom: 0;
 }
 .overlay-titl {
   width: fit-content;
@@ -227,7 +255,6 @@ main.container {
   opacity: 47%;
   color: var(--second-text-color);
 }
-
 @media (min-width: 768px) {
   .carousel-column:nth-child(1),
   .carousel-column:nth-child(3) {
@@ -273,6 +300,7 @@ main.container {
     top: auto;
     bottom: 10px;
     animation: scroll-down 60s linear infinite;
+    animation-play-state: paused;
   }
   .carousel-column:nth-child(2) {
     display: flex;
@@ -303,5 +331,7 @@ main.container {
   100% {
     transform: translateY(60%);
   }
+}
+@keyframes intro {
 }
 /* !------------------------ End Animation --------------------- */

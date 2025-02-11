@@ -35,34 +35,28 @@
       .carousel-column {
         display: flex;
         flex-direction: column;
-        gap: 46px;
-        animation: scroll-up 10s linear infinite;
+        gap: 20px;
+        transform: translateX(-100vw);
+        transition: transform 1.5s ease-out;
       }
-      .carousel-column:nth-child(1),
+      .carousel-column:nth-child(2) {
+        transform: translateX(100vw);
+      }
       .carousel-column:nth-child(3) {
-        flex-direction: column-reverse;
-        animation: scroll-down 10s linear infinite;
+        transform: translateX(-100vw);
       }
       .carousel-column img {
-        width: 352px;
+        width: 300px;
         height: auto;
         border-radius: 10px;
         opacity: 0.7;
       }
-      @keyframes scroll-up {
+      @keyframes scroll {
         0% {
           transform: translateY(0);
         }
         100% {
           transform: translateY(-50%);
-        }
-      }
-      @keyframes scroll-down {
-        0% {
-          transform: translateY(0);
-        }
-        100% {
-          transform: translateY(50%);
         }
       }
       .overlay-text {
@@ -78,10 +72,103 @@
   </head>
   <body>
     <div class="container">
-      <div class="carousel" id="carousel">
-        <div class="carousel-column"></div>
-        <div class="carousel-column"></div>
-        <div class="carousel-column"></div>
+      <div class="carousel">
+        <div class="carousel-column">
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-1.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-2.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-3.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-4.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-5.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-1.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-2.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-3.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-4.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-5.png" alt="3D Rendering" />
+          </div>
+        </div>
+        <div class="carousel-column">
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-6.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-7.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-8.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-9.jpg" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-10.jpg" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-6.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-7.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-8.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-9.jpg" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-10.jpg" alt="3D Rendering" />
+          </div>
+        </div>
+        <div class="carousel-column">
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-11.jpg" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-12.jpg" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-13.jpg" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-14.jpg" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-15.png" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-11.jpg" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-12.jpg" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-13.jpg" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-14.jpg" alt="3D Rendering" />
+          </div>
+          <div class="img-holder">
+            <img src="images/hero-imgs/hero-15.png" alt="3D Rendering" />
+          </div>
+        </div>
       </div>
       <h1 class="overlay-text">
         <span class="highlight">SEE</span> a vision of the world <br />
@@ -90,39 +177,21 @@
     </div>
 
     <script>
-      async function fetchImages() {
-        // Assuming the images are in an 'images' folder
-        let imagePaths = [
-          "images/hero-imgs/hero-1.png",
-          "images/hero-imgs/hero-2.png",
-          "images/hero-imgs/hero-3.png",
-          "images/hero-imgs/hero-4.png",
-          "images/hero-imgs/hero-5.png",
-          "images/hero-imgs/hero-6.png",
-          "images/hero-imgs/hero-7.png",
-          "images/hero-imgs/hero-8.png",
-          "images/hero-imgs/hero-9.jpg",
-          "images/hero-imgs/hero-10.jpg",
-          "images/hero-imgs/hero-11.jpg",
-          "images/hero-imgs/hero-12.jpg",
-          "images/hero-imgs/hero-13.jpg",
-          "images/hero-imgs/hero-14.jpg",
-        ];
+      let columns = document.querySelectorAll(".carousel-column");
+      // Trigger entry animation
+      setTimeout(() => {
+        columns[0].style.transform = "translateX(0)";
+        columns[1].style.transform = "translateX(0)";
+        columns[2].style.transform = "translateX(0)";
+      }, 500);
 
-        let columns = document.querySelectorAll(".carousel-column");
-        columns.forEach((column) => {
-          column.innerHTML = "";
+      // Start infinite scroll animation after entry animation completes
+      setTimeout(() => {
+        columns.forEach((col, index) => {
+          col.style.animation = `scroll 10s linear infinite`;
+          if (index === 1) col.style.animationDirection = "reverse";
         });
-
-        for (let i = 0; i < imagePaths.length; i++) {
-          let img = document.createElement("img");
-          img.src = imagePaths[i];
-          img.alt = `Image ${i + 1}`;
-          columns[i % 3].appendChild(img);
-        }
-      }
-
-      fetchImages();
+      }, 2000);
     </script>
   </body>
 </html>
