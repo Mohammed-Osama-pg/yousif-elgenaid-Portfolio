@@ -180,6 +180,26 @@ main.container {
   color: var(--main-color);
   text-transform: capitalize;
 }
+.overlay-text > span {
+  color: var(--second-text-color);
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  opacity: 47%;
+}
+.overlay-text span.s-1 {
+  right: 107%;
+  top: 110%;
+}
+.overlay-text span.s-2 {
+  left: 100%;
+  bottom: 110%;
+}
+.overlay-text span.s-3 {
+  left: 100%;
+  top: 125%;
+  width: 123px;
+}
 @media (min-width: 768px) {
   .carousel-column:nth-child(1),
   .carousel-column:nth-child(3) {
