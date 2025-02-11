@@ -166,6 +166,20 @@ main.container {
   object-fit: cover;
   opacity: 1;
 }
+.overlay-text {
+  width: fit-content;
+  text-align: center;
+  position: absolute;
+  top: calc(50% - 68px);
+  transform: translateY(-20%);
+}
+.overlay-text h1 {
+  font-size: var(--X-large-size);
+}
+.overlay-text h1 .highlight {
+  color: var(--main-color);
+  text-transform: capitalize;
+}
 @media (min-width: 768px) {
   .carousel-column:nth-child(1),
   .carousel-column:nth-child(3) {
