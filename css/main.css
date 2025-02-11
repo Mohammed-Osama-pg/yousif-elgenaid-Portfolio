@@ -101,6 +101,8 @@ img {
 header {
   padding-block: 23px;
   background-color: var(--main-background-color);
+  position: relative;
+  z-index: 1000;
 }
 header .logo {
   text-align: center;
@@ -128,7 +130,6 @@ main.container {
   display: flex;
   justify-content: space-evenly;
   position: relative;
-  z-index: -1;
   overflow: hidden;
 }
 .carousel-column {
