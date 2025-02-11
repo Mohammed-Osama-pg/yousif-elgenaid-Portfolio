@@ -181,4 +181,16 @@ main.container {
     height: calc(40.5vw * 0.5625);
   }
 }
+@media (min-width: 1279px) {
+  .carousel-column:nth-child(1) {
+    animation: scroll-down 60s linear infinite;
+  }
+  .carousel-column:nth-child(2) {
+    display: flex;
+  }
+  .carousel-column .img-holder {
+    width: 27.5vw;
+    height: calc(27.5vw * 0.5625);
+  }
+}
 /* !------------------------ End Hero section --------------------- */
