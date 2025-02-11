@@ -100,13 +100,13 @@ img {
 /* !------------------------ Start the header --------------------- */
 header {
   padding-block: 23px;
+  background-color: var(--main-background-color);
 }
 header .logo {
   text-align: center;
   font-size: var(--small-size);
   text-transform: uppercase;
   font-family: var(--heading-font);
-  background-color: var(--main-background-color);
 }
 @media (min-width: 1279px) {
   header .logo {
