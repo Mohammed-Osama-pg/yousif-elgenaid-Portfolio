@@ -174,7 +174,7 @@ main.container {
   transform: translateY(-20%);
 }
 .overlay-text h1 {
-  font-size: var(--X-large-size);
+  font-size: var(--medium-size);
 }
 .overlay-text h1 .highlight {
   color: var(--main-color);
@@ -188,16 +188,16 @@ main.container {
   opacity: 47%;
 }
 .overlay-text span.s-1 {
-  right: 107%;
+  right: 75%;
   top: 110%;
 }
 .overlay-text span.s-2 {
-  left: 100%;
+  left: 75%;
   bottom: 110%;
 }
 .overlay-text span.s-3 {
-  left: 100%;
-  top: 125%;
+  left: 66%;
+  top: 135%;
   width: 123px;
 }
 @media (min-width: 768px) {
@@ -206,6 +206,8 @@ main.container {
     display: flex;
   }
   .carousel-column:nth-child(1) {
+    top: 10px;
+    bottom: auto;
     animation: scroll-up 60s linear infinite;
   }
   .carousel-column:nth-child(2) {
@@ -215,9 +217,30 @@ main.container {
     width: 40.5vw;
     height: calc(40.5vw * 0.5625);
   }
+  .overlay-text h1 {
+    font-size: var(--medium-size);
+  }
+  .overlay-text > span {
+    font-size: var(--small-size);
+  }
+  .overlay-text span.s-1 {
+    right: 107%;
+    top: 110%;
+  }
+  .overlay-text span.s-2 {
+    left: 100%;
+    bottom: 110%;
+  }
+  .overlay-text span.s-3 {
+    left: 100%;
+    top: 125%;
+    width: 123px;
+  }
 }
 @media (min-width: 1279px) {
   .carousel-column:nth-child(1) {
+    top: auto;
+    bottom: 10px;
     animation: scroll-down 60s linear infinite;
   }
   .carousel-column:nth-child(2) {
@@ -226,6 +249,9 @@ main.container {
   .carousel-column .img-holder {
     width: 27.5vw;
     height: calc(27.5vw * 0.5625);
+  }
+  .overlay-text h1 {
+    font-size: var(--X-large-size);
   }
 }
 /* !------------------------ End Hero section --------------------- */
