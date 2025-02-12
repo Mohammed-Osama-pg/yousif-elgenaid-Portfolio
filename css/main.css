@@ -43,7 +43,7 @@
   --column-opacity: 0.15;
 
   /* animtion */
-  --animation-play: running;
+  --animation-play: paused;
 }
 /* !------------------------ End CSS Variables --------------------- */
 /* !------------------------ Start Base Styles --------------------- */
@@ -138,6 +138,10 @@ main.container {
   display: flex;
   justify-content: space-evenly;
   position: relative;
+  transform: scale(3.5) translateY(-30px);
+  opacity: 1;
+  animation: intro 2s ease-in-out forwards;
+  animation-play-state: var(--animation-play);
 }
 .carousel .column {
   display: flex;
@@ -145,7 +149,6 @@ main.container {
   gap: var(--carousel-gap);
   position: absolute;
   will-change: transform;
-  opacity: var(--column-opacity);
 }
 .carousel .column.left {
   left: 0;
@@ -317,5 +320,13 @@ main.container {
   }
 }
 @keyframes intro {
+  0% {
+    transform: scale(3.5) translateY(-30px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: var(--column-opacity);
+  }
 }
 /* !------------------------ End Animation --------------------- */
