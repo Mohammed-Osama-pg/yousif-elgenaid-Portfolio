@@ -18,30 +18,34 @@
   font-style: normal;
 }
 /* !-------------------------- End Fonts ---------------------------- */
-/* !------------------------ Start Valuables --------------------- */
+/* !------------------------ Start CSS Variables  --------------------- */
 :root {
-  /* *--------------colors------------ */
-  /* ?main colors */
-  --main-color: #d4a97d;
-  /* ?Text colors */
-  --main-text-color: #ffffff;
-  --second-text-color: #d8d8d8;
-  /* ?Background colors */
-  --main-background-color: #171515;
+  /* Colors */
+  --color-primary: #d4a97d;
+  --color-text: #ffffff;
+  --color-text-secondary: #d8d8d8;
+  --color-bg: #171515;
 
-  /* *-------------- Fonts ------------ */
-  /* ?font family */
-  --heading-font: "eurostar";
-  --paragraph-font: "centurygothic";
-  /* ?font sizes */
-  --XX-large-size: 132px;
-  --X-large-size: 44px;
-  --large-size: 38px;
-  --medium-size: 32px;
-  --normal-size: 24px;
-  --small-size: 18px;
+  /* Typography */
+  --font-heading: "eurostar", system-ui;
+  --font-body: "centurygothic", sans-serif;
+  --text-xxl: 132px;
+  --text-xl: 44px;
+  --text-lg: 38px;
+  --text-md: 32px;
+  --text-base: 24px;
+  --text-sm: 18px;
+
+  /* Layout */
+  --carousel-speed: 60s;
+  --carousel-gap: 46px;
+  --aspect-ratio: 16/9;
+  --column-opacity: 0.15;
+
+  /* animtion */
+  --animation-play: paused;
 }
-/* !------------------------ End Valuables --------------------- */
+/* !------------------------ End CSS Variables --------------------- */
 /* !------------------------ Start Global rules --------------------- */
 * {
   margin: 0;
@@ -56,11 +60,11 @@
 }
 html {
   scroll-behavior: smooth;
-  font-family: var(--paragraph-font);
-  color: var(--main-text-color);
+  font-family: var(--font-body);
+  color: var(--color-text);
 }
 body {
-  background-color: var(--main-background-color);
+  background-color: var(--color-bg);
 }
 ul {
   list-style: none;
@@ -75,8 +79,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--heading-font);
-  color: var(--main-text-color);
+  font-family: var(--font-heading);
+  color: var(--color-text);
 }
 img {
   height: 100%;
@@ -100,15 +104,15 @@ img {
 /* !------------------------ Start the header --------------------- */
 header {
   padding-block: 23px;
-  background-color: var(--main-background-color);
+  background-color: var(--color-bg);
   position: relative;
   z-index: 1000;
 }
 header .logo {
   text-align: center;
-  font-size: var(--small-size);
+  font-size: var(--text-sm);
   text-transform: uppercase;
-  font-family: var(--heading-font);
+  font-family: var(--font-heading);
 }
 @media (min-width: 1279px) {
   header .logo {
@@ -178,14 +182,14 @@ main.container {
   transform: translateY(-20%);
 }
 .overlay-titl h1 {
-  font-size: var(--medium-size);
+  font-size: var(--text-md);
 }
 .overlay-titl h1 .highlight {
-  color: var(--main-color);
+  color: var(--color-primary);
   text-transform: capitalize;
 }
 .overlay-titl > span {
-  color: var(--second-text-color);
+  color: var(--color-text-secondary);
   font-size: 15px;
   font-weight: bold;
   position: absolute;
@@ -221,7 +225,7 @@ main.container {
   display: block;
   width: 58px;
   height: 1px;
-  background-color: var(--main-text-color);
+  background-color: var(--color-text);
   position: absolute;
   left: calc(100% + 10px);
   top: 50%;
@@ -229,7 +233,7 @@ main.container {
 }
 .overlay-description .type {
   opacity: 47%;
-  color: var(--second-text-color);
+  color: var(--color-text-secondary);
 }
 @media (min-width: 768px) {
   .carousel-column:nth-child(1),
@@ -249,10 +253,10 @@ main.container {
     height: calc(40.5vw * 0.5625);
   }
   .overlay-titl h1 {
-    font-size: var(--medium-size);
+    font-size: var(--text-md);
   }
   .overlay-titl > span {
-    font-size: var(--small-size);
+    font-size: var(--text-sm);
   }
   .overlay-titl span.s-1 {
     right: 107%;
@@ -286,7 +290,7 @@ main.container {
     height: calc(27.5vw * 0.5625);
   }
   .overlay-titl h1 {
-    font-size: var(--X-large-size);
+    font-size: var(--text-xl);
   }
 }
 /* !------------------------ End Hero section --------------------- */
