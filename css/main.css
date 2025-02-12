@@ -157,7 +157,7 @@ main.container {
 .carousel-column:nth-child(3) {
   right: 0;
 }
-.carousel-column .img-holder {
+.carousel-column .card {
   width: 82.5vw;
   height: calc(82.5vw * 0.5625);
   border-radius: 10px;
@@ -165,33 +165,33 @@ main.container {
   position: relative;
   transition: 2s ease-in-out;
 }
-.carousel-column .img-holder img {
+.carousel-column .card img {
   width: 100%;
   object-fit: cover;
   opacity: 1;
 }
-.carousel-column:nth-child(2) .img-holder:not(:first-child) {
+.carousel-column:nth-child(2) .card:not(:first-child) {
   top: 110vh;
 }
-.carousel-column:nth-child(2) .img-holder:first-child {
+.carousel-column:nth-child(2) .card:first-child {
   top: -40vh;
 }
-.carousel-column:nth-child(1) .img-holder:not(:last-child),
-.carousel-column:nth-child(3) .img-holder:not(:last-child) {
+.carousel-column:nth-child(1) .card:not(:last-child),
+.carousel-column:nth-child(3) .card:not(:last-child) {
   bottom: 110vh;
 }
-.carousel-column:nth-child(1) .img-holder:last-child,
-.carousel-column:nth-child(3) .img-holder:last-child {
+.carousel-column:nth-child(1) .card:last-child,
+.carousel-column:nth-child(3) .card:last-child {
   bottom: -40vh;
 }
-.carousel-column:nth-child(2) .img-holder:not(:first-child).active,
-.carousel-column:nth-child(2) .img-holder:first-child.active {
+.carousel-column:nth-child(2) .card:not(:first-child).active,
+.carousel-column:nth-child(2) .card:first-child.active {
   top: 0;
 }
-.carousel-column:nth-child(1) .img-holder:not(:last-child).active,
-.carousel-column:nth-child(3) .img-holder:not(:last-child).active,
-.carousel-column:nth-child(1) .img-holder:last-child.active,
-.carousel-column:nth-child(3) .img-holder:last-child.active {
+.carousel-column:nth-child(1) .card:not(:last-child).active,
+.carousel-column:nth-child(3) .card:not(:last-child).active,
+.carousel-column:nth-child(1) .card:last-child.active,
+.carousel-column:nth-child(3) .card:last-child.active {
   bottom: 0;
 }
 .overlay-titl {
@@ -268,7 +268,7 @@ main.container {
   .carousel-column:nth-child(2) {
     display: none;
   }
-  .carousel-column .img-holder {
+  .carousel-column .card {
     width: 40.5vw;
     height: calc(40.5vw * 0.5625);
   }
@@ -305,7 +305,7 @@ main.container {
   .carousel-column:nth-child(2) {
     display: flex;
   }
-  .carousel-column .img-holder {
+  .carousel-column .card {
     width: 27.5vw;
     height: calc(27.5vw * 0.5625);
   }
