@@ -3,195 +3,729 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Infinite Vertical Carousel</title>
+    <title>Vertical Carousel</title>
+    animation-play-state: var(--animation-play);
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <style>
-      * {
+      /* ================ Font Faces ================ */
+      @font-face {
+        font-family: "centurygothic";
+        src: url(../fonts/centurygothic.woff2) format("woff2"),
+          url(../fonts/centurygothic.woff) format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "centurygothic";
+        src: url(../fonts/centurygothic_bold.woff2) format("woff2"),
+          url(../fonts/centurygothic_bold.woff) format("woff");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "eurostar";
+        src: url(../fonts/eurostarblack.woff2) format("woff2"),
+          url(../fonts/eurostarblack.woff) format("woff");
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* ================ CSS Variables ================ */
+      :root {
+        /* Colors */
+        --color-primary: #d4a97d;
+        --color-text: #ffffff;
+        --color-text-secondary: #d8d8d8;
+        --color-bg: #171515;
+
+        /* Typography */
+        --font-heading: "eurostar", system-ui;
+        --font-body: "centurygothic", sans-serif;
+        --text-xxl: 132px;
+        --text-xl: 44px;
+        --text-lg: 38px;
+        --text-md: 32px;
+        --text-base: 24px;
+        --text-sm: 18px;
+
+        /* Layout */
+        --carousel-speed: 60s;
+        --carousel-gap: 46px;
+        --aspect-ratio: 16/9;
+        --column-opacity: 0.15;
+        /* animtion */
+        --animation-play: paused;
+        /* running */
+      }
+
+      /* ================ Base Styles ================ */
+      *,
+      *::before,
+      *::after {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        user-select: none;
       }
+
+      :focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 4px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-family: var(--font-body);
+        color: var(--color-text);
+        background-color: var(--color-bg);
+      }
+
       body {
-        background: #111;
-        color: white;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
+        min-height: 100vh;
+        overflow-x: hidden;
       }
-      .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        position: relative;
-      }
-      .carousel {
-        opacity: 16%;
+
+      .sr-only {
         position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* ================ Components ================ */
+      .container {
+        padding-inline: 32px;
+      }
+
+      .header {
+        padding-block: 23px;
+        background-color: var(--color-bg);
+        position: relative;
+        z-index: 1000;
+      }
+
+      .header__logo {
+        font-family: var(--font-heading);
+        font-size: var(--text-sm);
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .carousel {
         width: 100%;
-        height: 100%;
+        height: calc(100vh - 68px);
         display: flex;
         justify-content: space-evenly;
+        position: relative;
         overflow: hidden;
+        contain: strict;
+        transform: scale(4.5) translateY(-75px);
+        transition: 2s ease-in-out;
       }
-      .carousel-column {
+      .carousel:hover {
+        transform: scale(1) translateY(0);
+      }
+
+      .carousel__column {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        transform: translateX(-100vw);
-        transition: transform 1.5s ease-out;
+        gap: var(--carousel-gap);
+        position: absolute;
+        will-change: transform;
+        opacity: var(--column-opacity);
       }
-      .carousel-column:nth-child(2) {
-        transform: translateX(100vw);
+
+      .carousel__column--left {
+        left: 0;
+        bottom: 10px;
+        animation: scroll-down var(--carousel-speed) linear infinite;
+        animation-play-state: var(--animation-play);
+        display: none;
       }
-      .carousel-column:nth-child(3) {
-        transform: translateX(-100vw);
+
+      .carousel__column--center {
+        top: 10px;
+        animation: scroll-up var(--carousel-speed) linear infinite;
+        animation-play-state: var(--animation-play);
       }
-      .carousel-column img {
-        width: 300px;
-        height: auto;
+
+      .carousel__column--right {
+        right: 0;
+        bottom: 10px;
+        animation: scroll-down var(--carousel-speed) linear infinite;
+        animation-play-state: var(--animation-play);
+        display: none;
+      }
+
+      .card {
+        width: 82.5vw;
+        background-color: var(--color-primary);
         border-radius: 10px;
-        opacity: 0.7;
+        overflow: hidden;
+        position: relative;
+        aspect-ratio: var(--aspect-ratio);
       }
-      @keyframes scroll {
+
+      .card__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        loading: lazy;
+      }
+
+      .overlay-title {
+        width: fit-content;
+        text-align: center;
+        position: absolute;
+        top: calc(50% - 68px);
+        left: 50%;
+        transform: translate(-50%, -20%);
+      }
+
+      .overlay-title__heading {
+        font-family: var(--font-heading);
+        font-size: var(--text-md);
+        line-height: 1.2;
+      }
+
+      .overlay-title__highlight {
+        color: var(--color-primary);
+        text-transform: capitalize;
+      }
+
+      .overlay-title__label {
+        color: var(--color-text-secondary);
+        font-size: 15px;
+        font-weight: 700;
+        position: absolute;
+        opacity: 0.47;
+      }
+
+      .overlay-title__label--s1 {
+        right: 75%;
+        top: 110%;
+      }
+
+      .overlay-title__label--s2 {
+        left: 75%;
+        bottom: 110%;
+      }
+
+      .overlay-title__label--s3 {
+        left: 66%;
+        top: 135%;
+        width: 123px;
+      }
+
+      .overlay-description {
+        width: 100%;
+        padding-inline: 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        bottom: 20px;
+      }
+
+      .overlay-description__date {
+        position: relative;
+      }
+
+      .overlay-description__date::after {
+        content: "";
+        display: block;
+        width: 58px;
+        height: 1px;
+        background-color: var(--color-text);
+        position: absolute;
+        left: calc(100% + 10px);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .overlay-description__type {
+        opacity: 0.47;
+        color: var(--color-text-secondary);
+      }
+
+      /* ================ Animations ================ */
+      @keyframes scroll-up {
         0% {
           transform: translateY(0);
         }
         100% {
-          transform: translateY(-50%);
+          transform: translateY(calc(-100% - var(--carousel-gap)));
         }
       }
-      .overlay-text {
-        position: absolute;
-        font-size: 2rem;
-        font-weight: bold;
-        text-align: center;
+
+      @keyframes scroll-down {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(calc(100% + var(--carousel-gap)));
+        }
       }
-      .highlight {
-        color: #c18f5a;
+
+      /* ================ Media Queries ================ */
+      @media (min-width: 768px) {
+        .container {
+          padding-inline: 44px;
+        }
+        .carousel__column--left,
+        .carousel__column--right {
+          display: flex;
+          top: 10px;
+          bottom: auto;
+        }
+
+        .carousel__column--left {
+          animation: scroll-up var(--carousel-speed) linear infinite;
+          animation-play-state: var(--animation-play);
+        }
+
+        .carousel__column--center {
+          display: none;
+        }
+
+        .card {
+          width: 40.5vw;
+        }
+
+        .overlay-title__heading {
+          font-size: var(--text-md);
+        }
+
+        .overlay-title__label {
+          font-size: var(--text-sm);
+        }
+
+        .overlay-title__label--s1 {
+          right: 107%;
+          top: 110%;
+        }
+
+        .overlay-title__label--s2 {
+          left: 100%;
+          bottom: 110%;
+        }
+
+        .overlay-title__label--s3 {
+          left: 100%;
+          top: 125%;
+        }
+
+        .overlay-description {
+          padding-inline: 64px;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .container {
+          padding-inline: 60px;
+        }
+
+        .header__logo {
+          text-align: left;
+        }
+
+        .carousel__column--center {
+          top: auto;
+          bottom: 10px;
+          animation: scroll-down var(--carousel-speed) linear infinite;
+          animation-play-state: var(--animation-play);
+        }
+        .carousel__column--left,
+        .carousel__column--center {
+          display: flex;
+        }
+        .carousel__column--right {
+          animation: scroll-up var(--carousel-speed) linear infinite;
+          animation-play-state: var(--animation-play);
+        }
+
+        .card {
+          width: 27.5vw;
+        }
+
+        .overlay-title__heading {
+          font-size: var(--text-xl);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .carousel__column {
+          animation-duration: 120s;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="container">
+    <a href="#main" class="sr-only">Skip to main content</a>
+
+    <header class="header container">
+      <h1 class="header__logo">Yousif Elgenaid</h1>
+    </header>
+
+    <main id="main" class="container">
       <div class="carousel">
-        <div class="carousel-column">
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-1.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-2.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-3.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-4.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-5.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-1.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-2.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-3.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-4.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-5.png" alt="3D Rendering" />
-          </div>
+        <div class="carousel__column carousel__column--left">
+          <!-- Repeat 10x with actual images -->
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural project visualization
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural project visualization
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural project visualization
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural project visualization
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural project visualization
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural project visualization
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural project visualization
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural project visualization
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural project visualization
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural project visualization
+            </figcaption>
+          </figure>
+          <!-- Repeat 9 more times -->
         </div>
-        <div class="carousel-column">
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-6.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-7.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-8.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-9.jpg" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-10.jpg" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-6.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-7.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-8.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-9.jpg" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-10.jpg" alt="3D Rendering" />
-          </div>
+
+        <div class="carousel__column carousel__column--center">
+          <!-- Repeat 10x with actual images -->
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural design"
+              class="card__image"
+            />
+            <figcaption class="sr-only">3D architectural rendering</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural design"
+              class="card__image"
+            />
+            <figcaption class="sr-only">3D architectural rendering</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural design"
+              class="card__image"
+            />
+            <figcaption class="sr-only">3D architectural rendering</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural design"
+              class="card__image"
+            />
+            <figcaption class="sr-only">3D architectural rendering</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural design"
+              class="card__image"
+            />
+            <figcaption class="sr-only">3D architectural rendering</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural design"
+              class="card__image"
+            />
+            <figcaption class="sr-only">3D architectural rendering</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural design"
+              class="card__image"
+            />
+            <figcaption class="sr-only">3D architectural rendering</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural design"
+              class="card__image"
+            />
+            <figcaption class="sr-only">3D architectural rendering</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural design"
+              class="card__image"
+            />
+            <figcaption class="sr-only">3D architectural rendering</figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Architectural design"
+              class="card__image"
+            />
+            <figcaption class="sr-only">3D architectural rendering</figcaption>
+          </figure>
+          <!-- Repeat 9 more times -->
         </div>
-        <div class="carousel-column">
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-11.jpg" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-12.jpg" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-13.jpg" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-14.jpg" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-15.png" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-11.jpg" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-12.jpg" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-13.jpg" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-14.jpg" alt="3D Rendering" />
-          </div>
-          <div class="img-holder">
-            <img src="images/hero-imgs/hero-15.png" alt="3D Rendering" />
-          </div>
+
+        <div class="carousel__column carousel__column--right">
+          <!-- Repeat 10x with actual images -->
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Building visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural concept design
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Building visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural concept design
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Building visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural concept design
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Building visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural concept design
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Building visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural concept design
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Building visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural concept design
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Building visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural concept design
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Building visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural concept design
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Building visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural concept design
+            </figcaption>
+          </figure>
+          <figure class="card">
+            <img
+              src="placeholder.jpg"
+              alt="Building visualization"
+              class="card__image"
+            />
+            <figcaption class="sr-only">
+              Architectural concept design
+            </figcaption>
+          </figure>
+          <!-- Repeat 9 more times -->
         </div>
       </div>
-      <h1 class="overlay-text">
-        <span class="highlight">SEE</span> a vision of the world <br />
-        through the eyes of an <span class="highlight">architect</span>.
-      </h1>
-    </div>
 
-    <script>
-      let columns = document.querySelectorAll(".carousel-column");
-      // Trigger entry animation
-      setTimeout(() => {
-        columns[0].style.transform = "translateX(0)";
-        columns[1].style.transform = "translateX(0)";
-        columns[2].style.transform = "translateX(0)";
-      }, 500);
+      <div class="overlay-title">
+        <h2 class="overlay-title__heading">
+          <span class="overlay-title__highlight">SEE</span> a vision of the
+          world <br />
+          through the eyes of an
+          <span class="overlay-title__highlight">architect</span>
+        </h2>
+        <span class="overlay-title__label overlay-title__label--s1"
+          >DESIGN</span
+        >
+        <span class="overlay-title__label overlay-title__label--s2">
+          VISUAL <br />
+          PRODUCTS
+        </span>
+        <span class="overlay-title__label overlay-title__label--s3"
+          >BE CREATIVE</span
+        >
+      </div>
 
-      // Start infinite scroll animation after entry animation completes
-      setTimeout(() => {
-        columns.forEach((col, index) => {
-          col.style.animation = `scroll 10s linear infinite`;
-          if (index === 1) col.style.animationDirection = "reverse";
-        });
-      }, 2000);
-    </script>
+      <div class="overlay-description">
+        <time datetime="2025-02" class="overlay-description__date"
+          >Feb 2025</time
+        >
+        <div class="overlay-description__type">3D VISUALIZER</div>
+      </div>
+    </main>
+
+    <!-- <script type="module">
+      const carouselColumns = document.querySelectorAll(".carousel__column");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            entry.target.style.animationPlayState = entry.isIntersecting
+              ? "running"
+              : "paused";
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      carouselColumns.forEach((column) => observer.observe(column));
+
+      // Add touch event prevention for smoother scrolling
+      document.addEventListener(
+        "touchstart",
+        (e) => {
+          if (e.target.closest(".carousel")) e.preventDefault();
+        },
+        { passive: false }
+      );
+    </script> -->
   </body>
 </html>
