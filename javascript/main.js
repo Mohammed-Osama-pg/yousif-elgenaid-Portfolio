@@ -24,4 +24,12 @@ document.addEventListener(
 // !-- Preload functions ----------------------------------
 window.addEventListener("load", () => {
   document.querySelector(".carousel").style.animationPlayState = "running";
+  document.querySelector("header").style.animationPlayState = "running";
+  document.querySelector(".overlay-titl").style.animationPlayState = "running";
+  document.querySelector(
+    ".overlay-description .date "
+  ).style.animationPlayState = "running";
+  document.querySelector(
+    ".overlay-description .type "
+  ).style.animationPlayState = "running";
 });

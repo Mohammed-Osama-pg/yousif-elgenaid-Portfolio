@@ -44,6 +44,7 @@
 
   /* animtion */
   --animation-play: paused;
+  --animation-time: 2s;
 }
 /* !------------------------ End CSS Variables --------------------- */
 /* !------------------------ Start Base Styles --------------------- */
@@ -110,6 +111,9 @@ header {
   padding-block: 23px;
   position: relative;
   z-index: 1000;
+  opacity: 0;
+  animation: show-down var(--animation-time) ease-in-out forwards;
+  animation-play-state: paused;
 }
 header .logo {
   font-family: var(--font-heading);
@@ -189,6 +193,9 @@ main.container {
   position: absolute;
   top: calc(50% - 68px);
   transform: translateY(-20%);
+  opacity: 0;
+  animation: show-up var(--animation-time) ease-in-out forwards;
+  animation-play-state: paused;
 }
 .overlay-titl h1 {
   font-size: var(--text-md);
@@ -228,6 +235,9 @@ main.container {
 }
 .overlay-description .date {
   position: relative;
+  opacity: 0;
+  animation: show-to-left var(--animation-time) ease-in-out forwards;
+  animation-play-state: paused;
 }
 .overlay-description .date::after {
   content: "";
@@ -243,6 +253,9 @@ main.container {
 .overlay-description .type {
   opacity: 47%;
   color: var(--color-text-secondary);
+  opacity: 0;
+  animation: show-to-right var(--animation-time) ease-in-out forwards;
+  animation-play-state: paused;
 }
 @media (min-width: 768px) {
   .carousel .column.left,
@@ -327,6 +340,38 @@ main.container {
   100% {
     transform: scale(1) translateY(0);
     opacity: var(--column-opacity);
+  }
+}
+@keyframes show-up {
+  0% {
+    top: 150vh;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show-down {
+  0% {
+    top: -150vh;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show-to-left {
+  0% {
+    left: -50vw;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show-to-right {
+  0% {
+    left: 150vw;
+  }
+  100% {
+    opacity: 1;
   }
 }
 /* !------------------------ End Animation --------------------- */
