@@ -46,12 +46,12 @@
   --animation-play: paused;
 }
 /* !------------------------ End CSS Variables --------------------- */
-/* !------------------------ Start Global rules --------------------- */
-* {
+/* !------------------------ Start Base Styles --------------------- */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   user-select: none;
 }
@@ -65,6 +65,8 @@ html {
 }
 body {
   background-color: var(--color-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 ul {
   list-style: none;
@@ -86,6 +88,8 @@ img {
   height: 100%;
   object-fit: cover;
 }
+
+/* ================ Components ================ */
 .container {
   padding-inline: 32px;
 }
@@ -99,8 +103,7 @@ img {
     padding-inline: 60px;
   }
 }
-
-/* !------------------------ End Global rules --------------------- */
+/* !------------------------ End Base Styles --------------------- */
 /* !------------------------ Start the header --------------------- */
 header {
   padding-block: 23px;
