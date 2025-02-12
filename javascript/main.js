@@ -10,8 +10,7 @@ const observer = new IntersectionObserver(
   },
   { threshold: 0.1 }
 );
-
-// !carouselColumns.forEach((column) => observer.observe(column));
+carouselColumns.forEach((column) => observer.observe(column));
 
 // Add touch event prevention for smoother scrolling
 document.addEventListener(
@@ -21,3 +20,8 @@ document.addEventListener(
   },
   { passive: false }
 );
+
+// !-- Preload functions ----------------------------------
+window.addEventListener("load", () => {
+  document.querySelector(".carousel").style.animationPlayState = "running";
+});
