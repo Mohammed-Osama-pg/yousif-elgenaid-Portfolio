@@ -1,0 +1,377 @@
+/* !-------------------------- Start Fonts ---------------------------- */
+@font-face {
+  font-family: "centurygothic";
+  src: url(../fonts/centurygothic.ttf) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "centurygothic";
+  src: url(../fonts/centurygothic_bold.ttf) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "eurostar";
+  src: url(../fonts/eurostarblack.ttf) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+/* !-------------------------- End Fonts ---------------------------- */
+/* !------------------------ Start CSS Variables  --------------------- */
+:root {
+  /* Colors */
+  --color-primary: #d4a97d;
+  --color-text: #ffffff;
+  --color-text-secondary: #d8d8d8;
+  --color-bg: #171515;
+
+  /* Typography */
+  --font-heading: "eurostar", system-ui;
+  --font-body: "centurygothic", sans-serif;
+  --text-xxl: 132px;
+  --text-xl: 44px;
+  --text-lg: 38px;
+  --text-md: 32px;
+  --text-base: 24px;
+  --text-sm: 18px;
+
+  /* Layout */
+  --carousel-speed: 60s;
+  --carousel-gap: 46px;
+  --aspect-ratio: 16/9;
+  --column-opacity: 0.15;
+
+  /* animtion */
+  --animation-play: paused;
+  --animation-time: 2s;
+}
+/* !------------------------ End CSS Variables --------------------- */
+/* !------------------------ Start Base Styles --------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+*:focus {
+  outline: none;
+}
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+body {
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+}
+img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================ Components ================ */
+.container {
+  padding-inline: 32px;
+}
+@media (min-width: 767px) {
+  .container {
+    padding-inline: 44px;
+  }
+}
+@media (min-width: 1279px) {
+  .container {
+    padding-inline: 60px;
+  }
+}
+/* !------------------------ End Base Styles --------------------- */
+/* !------------------------ Start the header --------------------- */
+header {
+  background-color: var(--color-bg);
+  padding-block: 23px;
+  position: relative;
+  z-index: 1000;
+  opacity: 0;
+  animation: show-down var(--animation-time) ease-in-out forwards;
+  animation-play-state: paused;
+}
+header .logo {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  text-align: center;
+  text-transform: uppercase;
+}
+@media (min-width: 1279px) {
+  header .logo {
+    text-align: left;
+  }
+}
+/* !------------------------ End the header --------------------- */
+/* !------------------------ Start Hero section --------------------- */
+main.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 68px);
+  position: relative;
+  overflow: hidden;
+}
+.carousel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  transform: scale(3.5) translateY(-30px);
+  opacity: 1;
+  animation: intro 2s ease-in-out forwards;
+  animation-play-state: var(--animation-play);
+}
+.carousel .column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--carousel-gap);
+  position: absolute;
+  will-change: transform;
+}
+.carousel .column.left {
+  left: 0;
+  bottom: 10px;
+  animation: scroll-down var(--carousel-speed) linear infinite;
+  animation-play-state: var(--animation-play);
+  display: none;
+}
+.carousel .column.center {
+  top: 10px;
+  animation: scroll-up var(--carousel-speed) linear infinite;
+  animation-play-state: var(--animation-play);
+}
+.carousel .column.right {
+  right: 0;
+  bottom: 10px;
+  animation: scroll-down var(--carousel-speed) linear infinite;
+  animation-play-state: var(--animation-play);
+  display: none;
+}
+.column .card {
+  width: 82.5vw;
+  background-color: var(--color-primary);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: var(--aspect-ratio);
+}
+.column .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.overlay-titl {
+  width: fit-content;
+  text-align: center;
+  position: absolute;
+  top: calc(50% - 68px);
+  transform: translateY(-20%);
+  opacity: 0;
+  animation: show-up var(--animation-time) ease-in-out forwards;
+  animation-play-state: paused;
+}
+.overlay-titl h1 {
+  font-size: var(--text-md);
+}
+.overlay-titl h1 .highlight {
+  color: var(--color-primary);
+  text-transform: capitalize;
+}
+.overlay-titl > span {
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  opacity: 47%;
+}
+.overlay-titl span.s-1 {
+  right: 75%;
+  top: 110%;
+}
+.overlay-titl span.s-2 {
+  left: 75%;
+  bottom: 110%;
+}
+.overlay-titl span.s-3 {
+  left: 66%;
+  top: 135%;
+  width: 123px;
+}
+.overlay-description {
+  width: 100%;
+  padding-inline: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+}
+.overlay-description .date {
+  position: relative;
+  opacity: 0;
+  animation: show-to-left var(--animation-time) ease-in-out forwards;
+  animation-play-state: paused;
+}
+.overlay-description .date::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 1px;
+  background-color: var(--color-text);
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.overlay-description .type {
+  opacity: 47%;
+  color: var(--color-text-secondary);
+  opacity: 0;
+  animation: show-to-right var(--animation-time) ease-in-out forwards;
+  animation-play-state: paused;
+}
+@media (min-width: 768px) {
+  .carousel .column.left,
+  .carousel .column.right {
+    display: flex;
+  }
+  .carousel .column.left {
+    top: 10px;
+    bottom: auto;
+    animation: scroll-up var(--carousel-speed) linear infinite;
+  }
+  .carousel .column.center {
+    display: none;
+  }
+  .column .card {
+    width: 40.5vw;
+  }
+  .overlay-titl h1 {
+    font-size: var(--text-md);
+  }
+  .overlay-titl > span {
+    font-size: var(--text-sm);
+  }
+  .overlay-titl span.s-1 {
+    right: 107%;
+    top: 110%;
+  }
+  .overlay-titl span.s-2 {
+    left: 100%;
+    bottom: 110%;
+  }
+  .overlay-titl span.s-3 {
+    left: 100%;
+    top: 125%;
+    width: 123px;
+  }
+  .overlay-description {
+    padding-inline: 64px;
+  }
+}
+@media (min-width: 1279px) {
+  .carousel .column.left {
+    top: auto;
+    bottom: 10px;
+    animation: scroll-down var(--carousel-speed) linear infinite;
+    animation-play-state: var(--animation-play);
+  }
+  .carousel .column.center {
+    display: flex;
+  }
+  .column .card {
+    width: 27.5vw;
+  }
+  .overlay-titl h1 {
+    font-size: var(--text-xl);
+  }
+}
+/* !------------------------ End Hero section --------------------- */
+
+/* !------------------------ Start Animation --------------------- */
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-60%);
+  }
+}
+@keyframes scroll-down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(60%);
+  }
+}
+@keyframes intro {
+  0% {
+    transform: scale(3.5) translateY(-30px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: var(--column-opacity);
+  }
+}
+@keyframes show-up {
+  0% {
+    top: 150vh;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show-down {
+  0% {
+    top: -150vh;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show-to-left {
+  0% {
+    left: -50vw;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show-to-right {
+  0% {
+    left: 150vw;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* !------------------------ End Animation --------------------- */
