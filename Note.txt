@@ -1,0 +1,22 @@
+#Note and Research
+
+##  the requirement :
+1- Full responsive architectural website mobile first code.
+2- have a hero section preload animation, intro animation, and consistent hero animation.
+3- have scroll animation.
+4- between pages animation.
+5- keyboard accessibility.
+6- The ability to see images in full screen.
+7- using SASS for styling.
+8- mouse cursor styling. 
+
+## research:
+- How to structure files in SASS:
+- Best practice to build preload animation.
+- Best practice to build intro animation.
+- Best practice to build consistent hero animation.
+- how scroll animation works.
+- Between pages animation.
+- keyboard accessibility.
+- mouse cursor styling.
+- open the full image on the screen.
