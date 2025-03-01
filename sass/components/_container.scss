@@ -1,0 +1,11 @@
+@use "../helpers" as *;
+.container {
+  padding-inline: rem(32);
+
+  @include breakpoint("md") {
+    padding-inline: rem(44);
+  }
+  @include breakpoint("lg") {
+    padding-inline: rem(60);
+  }
+}
