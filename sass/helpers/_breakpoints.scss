@@ -1,0 +1,6 @@
+@use "./functions" as *;
+$breakpoints: (
+  "md": em(768),
+  "lg": em(992),
+  "xl": em(1200),
+) !default;

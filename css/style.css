@@ -89,4 +89,18 @@ button {
   cursor: pointer;
   border: none;
   background-color: transparent;
+}
+
+.container {
+  padding-inline: 2rem;
+}
+@media (width >= 48em) {
+  .container {
+    padding-inline: 2.75rem;
+  }
+}
+@media (width >= 62em) {
+  .container {
+    padding-inline: 3.75rem;
+  }
 }/*# sourceMappingURL=style.css.map */
