@@ -103,4 +103,19 @@ button {
   .container {
     padding-inline: 3.75rem;
   }
+}
+
+.header {
+  background-color: var(--color-bg);
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  padding-block: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+.header .logo {
+  font-size: 1.5625rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }/*# sourceMappingURL=style.css.map */

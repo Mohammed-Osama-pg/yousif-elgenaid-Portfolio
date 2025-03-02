@@ -1,0 +1,15 @@
+@use "../helpers" as *;
+.header {
+  background-color: var($clr-bg);
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  padding-block: rem(24);
+  display: flex;
+  justify-content: center;
+  .logo {
+    font-size: rem(25);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
