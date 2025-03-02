@@ -91,6 +91,12 @@ button {
   background-color: transparent;
 }
 
+@keyframes show {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
 .container {
   padding-inline: 2rem;
 }
@@ -109,10 +115,13 @@ button {
   background-color: var(--color-bg);
   width: 100%;
   position: relative;
+  top: -270px;
+  opacity: 0;
   z-index: 1000;
   padding-block: 1.5rem;
   display: flex;
   justify-content: center;
+  animation: show 2s ease-in-out 1 forwards;
 }
 .header .logo {
   font-size: 1.5625rem;
