@@ -1,6 +1,13 @@
+@use "../helpers/" as *;
 @keyframes show {
   100% {
     top: 0;
     opacity: 1;
+  }
+}
+
+@keyframes scroll {
+  to {
+    transform: translateY(calc(-50% - rem(16)));
   }
 }
