@@ -75,13 +75,25 @@
   }
 
   &__content {
-    width: 100%;
+    width: rem(312);
     position: relative;
+    @include breakpoint("md") {
+      width: rem(400);
+    }
+    @include breakpoint("lg") {
+      width: rem(620);
+    }
     .title {
       font-size: var(--text-base);
       text-align: center;
       span {
         color: var(--color-primary);
+      }
+      @include breakpoint("md") {
+        font-size: rem(27);
+      }
+      @include breakpoint("lg") {
+        font-size: rem(42);
       }
     }
     .lable {
@@ -91,14 +103,35 @@
       color: var($clr-t);
       opacity: 0.47;
       position: absolute;
+      @include breakpoint("md") {
+        font-size: rem(20);
+      }
       &-1 {
         max-width: rem(56);
         bottom: calc(100% + rem(18));
         right: 0;
+        @include breakpoint("md") {
+          max-width: rem(135);
+          bottom: calc(100% + rem(15));
+          right: auto;
+          left: calc(100% + rem(1));
+        }
+        @include breakpoint("lg") {
+          bottom: calc(100% + rem(20));
+          left: calc(100% + rem(1));
+        }
       }
       &-2 {
         bottom: rem(3);
         left: rem(12);
+        @include breakpoint("md") {
+          bottom: auto;
+          top: calc(100% + rem(5));
+          left: auto;
+          right: 95%;
+        }
+        @include breakpoint("lg") {
+        }
       }
       &-3 {
         top: calc(100% + rem(24));
@@ -113,8 +146,11 @@
     justify-content: space-between;
     position: absolute;
     bottom: rem(13);
+    font-size: var(--text-xxs);
+    @include breakpoint("md") {
+      font-size: rem(20);
+    }
     .date {
-      font-size: var(--text-xxs);
       position: relative;
       &::after {
         content: "";
@@ -128,7 +164,6 @@
       }
     }
     .type {
-      font-size: var(--text-xxs);
       color: var($clr-t);
       opacity: 0.47;
     }
