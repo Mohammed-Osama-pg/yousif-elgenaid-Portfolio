@@ -155,13 +155,16 @@ button {
   position: relative;
 }
 .hero__bg-scroller {
+  width: 100vw;
+  height: calc(100% - 4.375rem);
+  display: flex;
+  justify-content: space-evenly;
   position: absolute;
   top: 4.375rem;
   left: 0;
-  width: 100%;
-  height: calc(100% - 4.375rem);
   -webkit-mask: linear-gradient(transparent, white 20%, white 65%, transparent);
           mask: linear-gradient(transparent, white 20%, white 65%, transparent);
+  contain: strict;
   overflow: hidden;
 }
 .hero__bg-scroller .inner-scroller {
@@ -172,11 +175,53 @@ button {
   align-items: center;
   gap: 1.0625rem;
   overflow: hidden;
-  animation: scroll 60s 2s linear infinite;
+}
+.hero__bg-scroller .inner-scroller--left {
+  padding-top: 10vh;
+  display: none;
+}
+@media (width >= 48em) {
+  .hero__bg-scroller .inner-scroller--left {
+    display: flex;
+  }
+}
+@media (width >= 48em) {
+  .hero__bg-scroller .inner-scroller--center {
+    display: none;
+  }
+}
+@media (width >= 62em) {
+  .hero__bg-scroller .inner-scroller--center {
+    display: flex;
+  }
+}
+.hero__bg-scroller .inner-scroller--right {
+  padding-top: 5vh;
+  display: none;
+}
+@media (width >= 48em) {
+  .hero__bg-scroller .inner-scroller--right {
+    display: flex;
+  }
+}
+.hero .card {
+  width: 82.5vw;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+@media (width >= 48em) {
+  .hero .card {
+    width: 40.5vw;
+  }
+}
+@media (width >= 62em) {
+  .hero .card {
+    width: 27.5vw;
+  }
 }
 .hero__bg-img {
   width: 100%;
-  aspect-ratio: 16/9;
   -o-object-fit: cover;
      object-fit: cover;
   opacity: 0.4;

@@ -8,12 +8,15 @@
   position: relative;
 
   &__bg-scroller {
+    width: 100vw;
+    height: calc(100% - rem(70));
+    display: flex;
+    justify-content: space-evenly;
     position: absolute;
     top: rem(70);
     left: 0;
-    width: 100%;
-    height: calc(100% - rem(70));
     mask: linear-gradient(transparent, white 20%, white 65%, transparent);
+    contain: strict;
     overflow: hidden;
 
     .inner-scroller {
@@ -23,13 +26,50 @@
       align-items: center;
       gap: rem(17);
       overflow: hidden;
-      animation: scroll 60s 2s linear infinite;
+      // animation: scroll 60s 2s linear infinite;
+
+      &--left {
+        padding-top: 10vh;
+        display: none;
+        @include breakpoint("md") {
+          display: flex;
+        }
+      }
+
+      &--center {
+        @include breakpoint("md") {
+          display: none;
+        }
+        @include breakpoint("lg") {
+          display: flex;
+        }
+      }
+
+      &--right {
+        padding-top: 5vh;
+        display: none;
+        @include breakpoint("md") {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  .card {
+    width: 82.5vw;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    @include breakpoint("md") {
+      width: 40.5vw;
+    }
+    @include breakpoint("lg") {
+      width: 27.5vw;
     }
   }
 
   &__bg-img {
     width: 100%;
-    aspect-ratio: 16/9;
     object-fit: cover;
     opacity: 0.4;
   }
