@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 
   &__bg-scroller {
     width: 100vw;
@@ -45,15 +46,11 @@
       &--left {
         display: none;
         .card:first-child {
-          position: relative;
-          top: -731px;
-          transform: translateY(-100%);
+          transform: translateY(calc(-100% + -731px));
           animation: show 2.5s ease-in-out forwards;
         }
         .card:not(:first-child) {
-          position: relative;
-          top: 100vh;
-          transform: translateY(100%);
+          transform: translateY(calc(100% + 100vh));
           animation: show 2.5s ease-in-out forwards;
         }
         @include breakpoint("md") {
@@ -72,15 +69,11 @@
         transform: translateY(-50%);
 
         .card[aria-hidden="true"] {
-          position: relative;
-          top: 130vh;
-          transform: translateY(100%);
+          transform: translateY(calc(100% + 130vh));
           animation: show 2.5s ease-in-out 0.2s forwards;
         }
         .card[aria-hidden="true"]:nth-child(6) {
-          position: relative;
-          top: 100vh;
-          transform: translateY(-100%);
+          transform: translateY(calc(-100% + 100vh));
           animation: show 2.5s ease-in-out 0.1s forwards;
         }
 
@@ -95,18 +88,13 @@
       &--right {
         display: none;
         .card:first-child {
-          position: relative;
-          top: -731px;
-          transform: translateY(-100%);
+          transform: translateY(calc(-100% + -731px));
           animation: show 2.5s ease-in-out forwards;
         }
         .card:not(:first-child) {
-          position: relative;
-          top: 100vh;
-          transform: translateY(100%);
-          animation: show 2.5s ease-in-out 0.1s forwards;
+          transform: translateY(calc(100% + 100vh));
+          animation: show 2.5s ease-in-out forwards;
         }
-
         @include breakpoint("md") {
           display: flex;
         }
@@ -123,6 +111,9 @@
   &__content {
     width: rem(312);
     position: relative;
+    opacity: 0;
+    transform: translateY(150vh);
+    animation: show 2.5s ease-in-out forwards;
     @include breakpoint("md") {
       width: rem(400);
     }
@@ -154,7 +145,7 @@
       font-weight: bold;
       text-align: center;
       color: var($clr-t);
-      opacity: 0.47;
+      opacity: 0.8;
       position: absolute;
       @include breakpoint("md") {
         font-size: rem(20);
@@ -200,6 +191,9 @@
     position: absolute;
     bottom: rem(13);
     font-size: var(--text-xxs);
+    transform: translateY(50vh);
+    animation: show 2.5s ease-in-out forwards;
+
     @include breakpoint("md") {
       font-size: rem(20);
     }

@@ -95,9 +95,8 @@ button {
 
 @keyframes show {
   100% {
-    top: 0;
     opacity: 1;
-    transform: translate(0);
+    transform: translateY(0);
   }
 }
 @keyframes scroll-up {
@@ -128,13 +127,14 @@ button {
   background-color: var(--color-bg);
   width: 100%;
   position: absolute;
-  top: -270px;
+  top: 0;
   opacity: 0;
   z-index: 1000;
   padding-block: 1.5rem;
   display: flex;
   justify-content: center;
-  animation: show 2.5s ease-in-out 1 forwards;
+  transform: translateY(-270px);
+  animation: show 3s ease-in-out 1 forwards;
 }
 .header .logo {
   font-size: 1.5625rem;
@@ -159,6 +159,7 @@ button {
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 .hero__bg-scroller {
   width: 100vw;
@@ -203,15 +204,11 @@ button {
   display: none;
 }
 .hero__bg-scroller .inner-scroller--left .card:first-child {
-  position: relative;
-  top: -731px;
-  transform: translateY(-100%);
+  transform: translateY(calc(-100% - 731px));
   animation: show 2.5s ease-in-out forwards;
 }
 .hero__bg-scroller .inner-scroller--left .card:not(:first-child) {
-  position: relative;
-  top: 100vh;
-  transform: translateY(100%);
+  transform: translateY(calc(100% + 100vh));
   animation: show 2.5s ease-in-out forwards;
 }
 @media (width >= 48em) {
@@ -232,15 +229,11 @@ button {
   transform: translateY(-50%);
 }
 .hero__bg-scroller .inner-scroller--center .card[aria-hidden=true] {
-  position: relative;
-  top: 130vh;
-  transform: translateY(100%);
+  transform: translateY(calc(100% + 130vh));
   animation: show 2.5s ease-in-out 0.2s forwards;
 }
 .hero__bg-scroller .inner-scroller--center .card[aria-hidden=true]:nth-child(6) {
-  position: relative;
-  top: 100vh;
-  transform: translateY(-100%);
+  transform: translateY(calc(-100% + 100vh));
   animation: show 2.5s ease-in-out 0.1s forwards;
 }
 @media (width >= 48em) {
@@ -257,16 +250,12 @@ button {
   display: none;
 }
 .hero__bg-scroller .inner-scroller--right .card:first-child {
-  position: relative;
-  top: -731px;
-  transform: translateY(-100%);
+  transform: translateY(calc(-100% - 731px));
   animation: show 2.5s ease-in-out forwards;
 }
 .hero__bg-scroller .inner-scroller--right .card:not(:first-child) {
-  position: relative;
-  top: 100vh;
-  transform: translateY(100%);
-  animation: show 2.5s ease-in-out 0.1s forwards;
+  transform: translateY(calc(100% + 100vh));
+  animation: show 2.5s ease-in-out forwards;
 }
 @media (width >= 48em) {
   .hero__bg-scroller .inner-scroller--right {
@@ -282,6 +271,9 @@ button {
 .hero__content {
   width: 19.5rem;
   position: relative;
+  opacity: 0;
+  transform: translateY(150vh);
+  animation: show 2.5s ease-in-out forwards;
 }
 @media (width >= 48em) {
   .hero__content {
@@ -325,7 +317,7 @@ button {
   font-weight: bold;
   text-align: center;
   color: var(--color-text);
-  opacity: 0.47;
+  opacity: 0.8;
   position: absolute;
 }
 @media (width >= 48em) {
@@ -375,6 +367,8 @@ button {
   position: absolute;
   bottom: 0.8125rem;
   font-size: var(--text-xxs);
+  transform: translateY(50vh);
+  animation: show 2.5s ease-in-out forwards;
 }
 @media (width >= 48em) {
   .hero__text {
