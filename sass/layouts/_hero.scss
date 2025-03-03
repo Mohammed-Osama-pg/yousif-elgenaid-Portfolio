@@ -24,19 +24,26 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: rem(17);
+      gap: rem(30);
       overflow: hidden;
-      // animation: scroll 60s 2s linear infinite;
+      animation: scroll-up 30s 1s linear infinite;
 
       &--left {
-        padding-top: 10vh;
         display: none;
         @include breakpoint("md") {
           display: flex;
+          animation-name: scroll-down;
+          transform: translateY(-50%);
+        }
+        @include breakpoint("lg") {
+          animation-name: scroll-up;
+          transform: translateY(0);
         }
       }
 
       &--center {
+        animation-name: scroll-down;
+        transform: translateY(-50%);
         @include breakpoint("md") {
           display: none;
         }
@@ -46,7 +53,6 @@
       }
 
       &--right {
-        padding-top: 5vh;
         display: none;
         @include breakpoint("md") {
           display: flex;
@@ -83,6 +89,10 @@
     @include breakpoint("lg") {
       width: rem(620);
     }
+    @include breakpoint("xl") {
+      width: rem(900);
+    }
+
     .title {
       font-size: var(--text-base);
       text-align: center;
@@ -94,6 +104,9 @@
       }
       @include breakpoint("lg") {
         font-size: rem(42);
+      }
+      @include breakpoint("xl") {
+        font-size: rem(60);
       }
     }
     .lable {

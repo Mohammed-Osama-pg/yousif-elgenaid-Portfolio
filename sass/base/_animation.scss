@@ -6,8 +6,13 @@
   }
 }
 
-@keyframes scroll {
+@keyframes scroll-up {
   to {
-    transform: translateY(calc(-50% - rem(16)));
+    transform: translateY(calc(-50% - rem(19)));
+  }
+}
+@keyframes scroll-down {
+  to {
+    transform: translateY(calc(0% - rem(19)));
   }
 }

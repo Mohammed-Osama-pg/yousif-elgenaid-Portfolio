@@ -1,3 +1,5 @@
+@use "./functions" as *;
+@use "./mixins" as *;
 $clr-p: --color-primary;
 $clr-t: --color-text;
 $clr-t-s: --color-text-secondary;

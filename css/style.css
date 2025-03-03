@@ -99,9 +99,14 @@ button {
     opacity: 1;
   }
 }
-@keyframes scroll {
+@keyframes scroll-up {
   to {
-    transform: translateY(calc(-50% - 1rem));
+    transform: translateY(calc(-50% - 1.1875rem));
+  }
+}
+@keyframes scroll-down {
+  to {
+    transform: translateY(calc(0% - 1.1875rem));
   }
 }
 .container {
@@ -173,17 +178,29 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.0625rem;
+  gap: 1.875rem;
   overflow: hidden;
+  animation: scroll-up 30s 1s linear infinite;
 }
 .hero__bg-scroller .inner-scroller--left {
-  padding-top: 10vh;
   display: none;
 }
 @media (width >= 48em) {
   .hero__bg-scroller .inner-scroller--left {
     display: flex;
+    animation-name: scroll-down;
+    transform: translateY(-50%);
   }
+}
+@media (width >= 62em) {
+  .hero__bg-scroller .inner-scroller--left {
+    animation-name: scroll-up;
+    transform: translateY(0);
+  }
+}
+.hero__bg-scroller .inner-scroller--center {
+  animation-name: scroll-down;
+  transform: translateY(-50%);
 }
 @media (width >= 48em) {
   .hero__bg-scroller .inner-scroller--center {
@@ -196,7 +213,6 @@ button {
   }
 }
 .hero__bg-scroller .inner-scroller--right {
-  padding-top: 5vh;
   display: none;
 }
 @media (width >= 48em) {
@@ -240,6 +256,11 @@ button {
     width: 38.75rem;
   }
 }
+@media (width >= 85.5em) {
+  .hero__content {
+    width: 56.25rem;
+  }
+}
 .hero__content .title {
   font-size: var(--text-base);
   text-align: center;
@@ -255,6 +276,11 @@ button {
 @media (width >= 62em) {
   .hero__content .title {
     font-size: 2.625rem;
+  }
+}
+@media (width >= 85.5em) {
+  .hero__content .title {
+    font-size: 3.75rem;
   }
 }
 .hero__content .lable {
