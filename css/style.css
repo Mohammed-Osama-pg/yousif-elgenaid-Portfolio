@@ -97,6 +97,7 @@ button {
   100% {
     top: 0;
     opacity: 1;
+    transform: translate(0);
   }
 }
 @keyframes scroll-up {
@@ -133,7 +134,7 @@ button {
   padding-block: 1.5rem;
   display: flex;
   justify-content: center;
-  animation: show 2s ease-in-out 1 forwards;
+  animation: show 2.5s ease-in-out 1 forwards;
 }
 .header .logo {
   font-size: 1.5625rem;
@@ -180,10 +181,38 @@ button {
   align-items: center;
   gap: 1.875rem;
   overflow: hidden;
-  animation: scroll-up 30s 1s linear infinite;
+  animation: scroll-up 30s 2.5s linear infinite;
+}
+.hero__bg-scroller .inner-scroller .card {
+  width: 82.5vw;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+@media (width >= 48em) {
+  .hero__bg-scroller .inner-scroller .card {
+    width: 40.5vw;
+  }
+}
+@media (width >= 62em) {
+  .hero__bg-scroller .inner-scroller .card {
+    width: 27.5vw;
+  }
 }
 .hero__bg-scroller .inner-scroller--left {
   display: none;
+}
+.hero__bg-scroller .inner-scroller--left .card:first-child {
+  position: relative;
+  top: -731px;
+  transform: translateY(-100%);
+  animation: show 2.5s ease-in-out forwards;
+}
+.hero__bg-scroller .inner-scroller--left .card:not(:first-child) {
+  position: relative;
+  top: 100vh;
+  transform: translateY(100%);
+  animation: show 2.5s ease-in-out forwards;
 }
 @media (width >= 48em) {
   .hero__bg-scroller .inner-scroller--left {
@@ -202,6 +231,18 @@ button {
   animation-name: scroll-down;
   transform: translateY(-50%);
 }
+.hero__bg-scroller .inner-scroller--center .card[aria-hidden=true] {
+  position: relative;
+  top: 130vh;
+  transform: translateY(100%);
+  animation: show 2.5s ease-in-out 0.2s forwards;
+}
+.hero__bg-scroller .inner-scroller--center .card[aria-hidden=true]:nth-child(6) {
+  position: relative;
+  top: 100vh;
+  transform: translateY(-100%);
+  animation: show 2.5s ease-in-out 0.1s forwards;
+}
 @media (width >= 48em) {
   .hero__bg-scroller .inner-scroller--center {
     display: none;
@@ -215,32 +256,28 @@ button {
 .hero__bg-scroller .inner-scroller--right {
   display: none;
 }
+.hero__bg-scroller .inner-scroller--right .card:first-child {
+  position: relative;
+  top: -731px;
+  transform: translateY(-100%);
+  animation: show 2.5s ease-in-out forwards;
+}
+.hero__bg-scroller .inner-scroller--right .card:not(:first-child) {
+  position: relative;
+  top: 100vh;
+  transform: translateY(100%);
+  animation: show 2.5s ease-in-out 0.1s forwards;
+}
 @media (width >= 48em) {
   .hero__bg-scroller .inner-scroller--right {
     display: flex;
-  }
-}
-.hero .card {
-  width: 82.5vw;
-  border-radius: 10px;
-  overflow: hidden;
-  aspect-ratio: 16/9;
-}
-@media (width >= 48em) {
-  .hero .card {
-    width: 40.5vw;
-  }
-}
-@media (width >= 62em) {
-  .hero .card {
-    width: 27.5vw;
   }
 }
 .hero__bg-img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 .hero__content {
   width: 19.5rem;

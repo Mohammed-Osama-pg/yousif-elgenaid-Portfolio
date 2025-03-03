@@ -26,10 +26,36 @@
       align-items: center;
       gap: rem(30);
       overflow: hidden;
-      animation: scroll-up 30s 1s linear infinite;
+      animation: scroll-up 30s 2.5s linear infinite;
+      // animation-play-state: paused;
+
+      .card {
+        width: 82.5vw;
+        border-radius: 10px;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+        @include breakpoint("md") {
+          width: 40.5vw;
+        }
+        @include breakpoint("lg") {
+          width: 27.5vw;
+        }
+      }
 
       &--left {
         display: none;
+        .card:first-child {
+          position: relative;
+          top: -731px;
+          transform: translateY(-100%);
+          animation: show 2.5s ease-in-out forwards;
+        }
+        .card:not(:first-child) {
+          position: relative;
+          top: 100vh;
+          transform: translateY(100%);
+          animation: show 2.5s ease-in-out forwards;
+        }
         @include breakpoint("md") {
           display: flex;
           animation-name: scroll-down;
@@ -44,6 +70,20 @@
       &--center {
         animation-name: scroll-down;
         transform: translateY(-50%);
+
+        .card[aria-hidden="true"] {
+          position: relative;
+          top: 130vh;
+          transform: translateY(100%);
+          animation: show 2.5s ease-in-out 0.2s forwards;
+        }
+        .card[aria-hidden="true"]:nth-child(6) {
+          position: relative;
+          top: 100vh;
+          transform: translateY(-100%);
+          animation: show 2.5s ease-in-out 0.1s forwards;
+        }
+
         @include breakpoint("md") {
           display: none;
         }
@@ -54,6 +94,19 @@
 
       &--right {
         display: none;
+        .card:first-child {
+          position: relative;
+          top: -731px;
+          transform: translateY(-100%);
+          animation: show 2.5s ease-in-out forwards;
+        }
+        .card:not(:first-child) {
+          position: relative;
+          top: 100vh;
+          transform: translateY(100%);
+          animation: show 2.5s ease-in-out 0.1s forwards;
+        }
+
         @include breakpoint("md") {
           display: flex;
         }
@@ -61,23 +114,10 @@
     }
   }
 
-  .card {
-    width: 82.5vw;
-    border-radius: 10px;
-    overflow: hidden;
-    aspect-ratio: 16/9;
-    @include breakpoint("md") {
-      width: 40.5vw;
-    }
-    @include breakpoint("lg") {
-      width: 27.5vw;
-    }
-  }
-
   &__bg-img {
     width: 100%;
     object-fit: cover;
-    opacity: 0.4;
+    opacity: 0.3;
   }
 
   &__content {
