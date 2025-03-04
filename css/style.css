@@ -408,6 +408,9 @@ button {
   flex-wrap: wrap;
   flex-direction: column;
   padding-block: 1.25rem;
+  position: relative;
+  max-width: 83.125rem;
+  margin-inline: auto;
 }
 .about__title {
   width: -moz-fit-content;
@@ -503,10 +506,10 @@ button {
   background-color: var(--color-text);
 }
 .about__lables {
-  overflow: hidden;
   max-width: 100%;
 }
 .about__lables .scroller {
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -519,4 +522,93 @@ button {
 .about__lables .scroller .lable {
   opacity: 0.45;
   font-size: var(--text-xxs);
+}
+@media (width >= 48em) {
+  .about {
+    flex-direction: row;
+    padding-top: 5rem;
+  }
+  .about__title {
+    position: absolute;
+    top: 1.25rem;
+  }
+  .about__profile {
+    margin-right: 0;
+    width: -moz-fit-content;
+    width: fit-content;
+    order: 2;
+  }
+  .about__profile .profile-img {
+    width: 35vw;
+  }
+  .about__description {
+    max-width: 19.9375rem;
+    margin: auto;
+    order: 1;
+  }
+  .about__description h3 {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .about__skills {
+    margin-top: 1.5625rem;
+    margin-bottom: 1.875rem;
+    order: 3;
+  }
+  .about__skills .skill__title {
+    font-size: var(--text-xs);
+  }
+  .about__skills .skill__bar {
+    width: 7.8125rem;
+  }
+  .about__lables {
+    margin-block: 1.875rem;
+    order: 4;
+  }
+  .about__lables .scroller .lable {
+    font-size: var(--text-xs);
+  }
+}
+@media (width >= 62em) {
+  .about__title {
+    font-size: var(--text-lg);
+  }
+  .about__profile {
+    flex: 1;
+    order: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .about__profile .profile-img {
+    width: 25vw;
+    max-width: 15.125rem;
+  }
+  .about__description {
+    flex: 1;
+    max-width: 23.5625rem;
+    margin: auto 0;
+  }
+  .about__description h3 {
+    font-size: var(--text-md);
+  }
+  .about__skills {
+    flex: 1;
+    order: 2;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .about__skills .skill__title {
+    font-size: var(--text-xs);
+  }
+  .about__skills .skill__bar {
+    width: 12.8125rem;
+  }
+  .about__lables {
+    margin: auto;
+    order: 4;
+  }
+  .about__lables .scroller .lable {
+    font-size: var(--text-sm);
+  }
 }/*# sourceMappingURL=style.css.map */

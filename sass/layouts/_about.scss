@@ -4,6 +4,9 @@
   flex-wrap: wrap;
   flex-direction: column;
   padding-block: rem(20);
+  position: relative;
+  max-width: rem(1330);
+  margin-inline: auto;
 
   &__title {
     width: fit-content;
@@ -108,9 +111,9 @@
   }
 
   &__lables {
-    overflow: hidden;
     max-width: 100%;
     .scroller {
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -123,6 +126,103 @@
       .lable {
         opacity: 0.45;
         font-size: var(--text-xxs);
+      }
+    }
+  }
+
+  @include breakpoint("md") {
+    flex-direction: row;
+    padding-top: rem(80);
+    &__title {
+      position: absolute;
+      top: rem(20);
+    }
+    &__profile {
+      margin-right: 0;
+      width: fit-content;
+      order: 2;
+      .profile-img {
+        width: 35vw;
+      }
+    }
+    &__description {
+      max-width: rem(319);
+      margin: auto;
+      order: 1;
+      h3 {
+        width: fit-content;
+      }
+    }
+    &__skills {
+      margin-top: rem(25);
+      margin-bottom: rem(30);
+      order: 3;
+      .skill {
+        &__title {
+          font-size: var(--text-xs);
+        }
+
+        &__bar {
+          width: rem(125);
+        }
+      }
+    }
+    &__lables {
+      margin-block: rem(30);
+      order: 4;
+      .scroller {
+        .lable {
+          font-size: var(--text-xs);
+        }
+      }
+    }
+  }
+
+  @include breakpoint("lg") {
+    &__title {
+      font-size: var(--text-lg);
+    }
+    &__profile {
+      flex: 1;
+      order: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .profile-img {
+        width: 25vw;
+        max-width: rem(242);
+      }
+    }
+    &__description {
+      flex: 1;
+      max-width: rem(377);
+      margin: auto 0;
+      h3 {
+        font-size: var(--text-md);
+      }
+    }
+    &__skills {
+      flex: 1;
+      order: 2;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      .skill {
+        &__title {
+          font-size: var(--text-xs);
+        }
+
+        &__bar {
+          width: rem(205);
+        }
+      }
+    }
+    &__lables {
+      margin: auto;
+      order: 4;
+      .scroller {
+        .lable {
+          font-size: var(--text-sm);
+        }
       }
     }
   }
