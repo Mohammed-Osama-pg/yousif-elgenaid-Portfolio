@@ -16,3 +16,14 @@
     transform: translateY(calc(0% - rem(19)));
   }
 }
+
+@keyframes scroll-left {
+  to {
+    transform: translateX(calc(-50% - 8px));
+  }
+}
+@keyframes scroll-right {
+  to {
+    transform: translateX(0);
+  }
+}

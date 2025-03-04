@@ -112,20 +112,23 @@
 
   &__lables {
     max-width: 100%;
+    overflow: hidden;
     .scroller {
-      overflow: hidden;
+      width: fit-content;
       display: flex;
-      justify-content: center;
       align-items: center;
       gap: rem(16);
       margin-bottom: rem(15);
+      animation: scroll-left 10s linear infinite;
       &:first-child {
-        justify-content: flex-start;
+        transform: translateX(calc(-50% - 8px));
+        animation: scroll-right 10s linear infinite;
       }
 
       .lable {
         opacity: 0.45;
         font-size: var(--text-xxs);
+        width: fit-content;
       }
     }
   }

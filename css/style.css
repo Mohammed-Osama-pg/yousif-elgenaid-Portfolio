@@ -111,12 +111,12 @@ button {
 }
 @keyframes scroll-left {
   to {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - 8px));
   }
 }
 @keyframes scroll-right {
   to {
-    transform: translateX(50%);
+    transform: translateX(0);
   }
 }
 .container {
@@ -507,21 +507,26 @@ button {
 }
 .about__lables {
   max-width: 100%;
+  overflow: hidden;
 }
 .about__lables .scroller {
-  overflow: hidden;
+  width: -moz-fit-content;
+  width: fit-content;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 1rem;
   margin-bottom: 0.9375rem;
+  animation: scroll-left 10s linear infinite;
 }
 .about__lables .scroller:first-child {
-  justify-content: flex-start;
+  transform: translateX(calc(-50% - 8px));
+  animation: scroll-right 10s linear infinite;
 }
 .about__lables .scroller .lable {
   opacity: 0.45;
   font-size: var(--text-xxs);
+  width: -moz-fit-content;
+  width: fit-content;
 }
 @media (width >= 48em) {
   .about {
