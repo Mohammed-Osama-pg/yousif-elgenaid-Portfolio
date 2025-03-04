@@ -31,7 +31,7 @@
   --text-md: 32px;
   --text-base: 24px;
   --text-sm: 18px;
-  --text-xs: 14px;
+  --text-xs: 15px;
   --text-xxs: 10px;
 }
 
@@ -107,6 +107,16 @@ button {
 @keyframes scroll-down {
   to {
     transform: translateY(calc(0% - 1.1875rem));
+  }
+}
+@keyframes scroll-left {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scroll-right {
+  to {
+    transform: translateX(50%);
   }
 }
 .container {
@@ -391,4 +401,122 @@ button {
 .hero__text .type {
   color: var(--color-text);
   opacity: 0.47;
+}
+
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding-block: 1.25rem;
+}
+.about__title {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 1.875rem;
+  font-size: var(--text-base);
+  font-weight: bold;
+  position: relative;
+}
+.about__title::after {
+  content: "";
+  width: 80%;
+  height: 0.0625rem;
+  background-color: var(--color-primary);
+  position: absolute;
+  top: 105%;
+  left: 0;
+}
+.about__profile {
+  margin-inline: auto;
+  margin-bottom: 3.125rem;
+}
+.about__profile .profile-img {
+  width: 12.1875rem;
+  position: relative;
+}
+.about__profile .profile-img::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--color-primary);
+  position: absolute;
+  top: 1.4375rem;
+  left: -1.5625rem;
+  z-index: -1;
+}
+.about__profile .profile-img::after {
+  content: "";
+  width: 63%;
+  height: 80.7%;
+  background-color: var(--color-primary);
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+  position: absolute;
+  top: -1.4375rem;
+  right: -1.5625rem;
+  z-index: 2;
+}
+.about__profile .profile-img img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.about__description h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.about__description p {
+  font-size: 1rem;
+  line-height: 1.9;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.75rem;
+}
+.about__skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.5625rem;
+}
+.about__skills .skill__title {
+  font-size: var(--text-xxs);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.about__skills .skill__bar {
+  width: 5.625rem;
+  height: 0.625rem;
+  background-color: var(--color-primary);
+  padding: 0.125rem;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.about__skills .skill__bar span {
+  display: block;
+  height: 100%;
+  background-color: var(--color-text);
+}
+.about__lables {
+  overflow: hidden;
+  max-width: 100%;
+}
+.about__lables .scroller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.9375rem;
+}
+.about__lables .scroller:first-child {
+  justify-content: flex-start;
+}
+.about__lables .scroller .lable {
+  opacity: 0.45;
+  font-size: var(--text-xxs);
 }/*# sourceMappingURL=style.css.map */
