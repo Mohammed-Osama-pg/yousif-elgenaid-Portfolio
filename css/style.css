@@ -740,4 +740,18 @@ button {
   .portfolio__holder .project__info .info__type {
     font-size: var(--text-base);
   }
+}
+@media (width >= 62em) {
+  .portfolio__title {
+    margin-bottom: 3.75rem;
+  }
+  .portfolio__holder .project__label {
+    left: 3.75rem;
+  }
+  .portfolio__holder .project__number {
+    right: 3.75rem;
+  }
+  .portfolio__holder .project__info {
+    left: 3.75rem;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -140,4 +140,23 @@
       }
     }
   }
+
+  @include breakpoint("lg") {
+    &__title {
+      margin-bottom: rem(60);
+    }
+    &__holder {
+      .project {
+        &__label {
+          left: rem(60);
+        }
+        &__number {
+          right: rem(60);
+        }
+        &__info {
+          left: rem(60);
+        }
+      }
+    }
+  }
 }
