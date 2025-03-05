@@ -110,7 +110,7 @@
     }
   }
 
-  &__lables {
+  &__labels {
     max-width: 100%;
     overflow: hidden;
     .scroller {
@@ -125,7 +125,7 @@
         animation: scroll-right 10s linear infinite;
       }
 
-      .lable {
+      .label {
         opacity: 0.45;
         font-size: var(--text-xxs);
         width: fit-content;
@@ -170,11 +170,11 @@
         }
       }
     }
-    &__lables {
+    &__labels {
       margin-block: rem(30);
       order: 4;
       .scroller {
-        .lable {
+        .label {
           font-size: var(--text-xs);
         }
       }
@@ -219,11 +219,11 @@
         }
       }
     }
-    &__lables {
+    &__labels {
       margin: auto;
       order: 4;
       .scroller {
-        .lable {
+        .label {
           font-size: var(--text-sm);
         }
       }
