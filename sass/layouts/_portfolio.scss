@@ -13,10 +13,33 @@
   }
 
   &__holder {
+    position: relative;
+    cursor: none;
+    .cursor {
+      width: rem(70);
+      height: rem(70);
+      font-size: var(--text-xxs);
+      font-weight: bold;
+      color: var($clr-t);
+      background-color: hsl(0, 0%, 100%, 0.13);
+      border: rem(2) solid var($clr-t);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed; /* Instead of absolute */
+      top: 0;
+      left: 0;
+      transform: translate(0, 0);
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.7s ease-out;
+      visibility: hidden;
+    }
     .project {
       position: sticky;
       top: 0;
-
       &__image {
         height: 100vh;
         width: 100vw;
@@ -146,6 +169,10 @@
       margin-bottom: rem(60);
     }
     &__holder {
+      scroll-behavior: smooth;
+      .cursor {
+        visibility: visible;
+      }
       .project {
         &__label {
           left: rem(60);

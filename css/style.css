@@ -628,6 +628,32 @@ button {
   display: block;
   margin-bottom: 0.25rem;
 }
+.portfolio__holder {
+  position: relative;
+  cursor: none;
+}
+.portfolio__holder .cursor {
+  width: 4.375rem;
+  height: 4.375rem;
+  font-size: var(--text-xxs);
+  font-weight: bold;
+  color: var(--color-text);
+  background-color: hsla(0, 0%, 100%, 0.13);
+  border: 0.125rem solid var(--color-text);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Instead of absolute */
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.7s ease-out;
+  visibility: hidden;
+}
 .portfolio__holder .project {
   position: sticky;
   top: 0;
@@ -744,6 +770,12 @@ button {
 @media (width >= 62em) {
   .portfolio__title {
     margin-bottom: 3.75rem;
+  }
+  .portfolio__holder {
+    scroll-behavior: smooth;
+  }
+  .portfolio__holder .cursor {
+    visibility: visible;
   }
   .portfolio__holder .project__label {
     left: 3.75rem;
