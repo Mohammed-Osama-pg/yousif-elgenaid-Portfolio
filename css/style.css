@@ -710,4 +710,34 @@ button {
 .portfolio__holder .project__info .info__type {
   font-size: var(--text-xs);
   color: var(--color-primary);
+}
+@media (width >= 48em) {
+  .portfolio__title {
+    font-size: var(--text-lg);
+  }
+  .portfolio__holder .project__label {
+    font-size: var(--text-md);
+    left: 1.875rem;
+  }
+  .portfolio__holder .project__number {
+    font-size: var(--text-md);
+    right: 1.875rem;
+  }
+  .portfolio__holder .project__info {
+    width: 400px;
+    left: 1.875rem;
+    bottom: 7%;
+  }
+  .portfolio__holder .project__info .pro-logo {
+    width: 13.5675rem;
+    height: 7.54375rem;
+  }
+  .portfolio__holder .project__info .info {
+    margin-left: 5rem;
+    margin-bottom: 1.25rem;
+    font-size: var(--text-sm);
+  }
+  .portfolio__holder .project__info .info__type {
+    font-size: var(--text-base);
+  }
 }/*# sourceMappingURL=style.css.map */

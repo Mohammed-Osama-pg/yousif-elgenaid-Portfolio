@@ -101,4 +101,43 @@
       }
     }
   }
+
+  @include breakpoint("md") {
+    &__title {
+      font-size: var(--text-lg);
+    }
+
+    &__holder {
+      .project {
+        &__label {
+          font-size: var(--text-md);
+          left: rem(30);
+        }
+        &__number {
+          font-size: var(--text-md);
+          right: rem(30);
+        }
+        &__info {
+          width: 400px;
+          left: rem(30);
+          bottom: 7%;
+
+          .pro-logo {
+            width: rem(217.08);
+            height: rem(120.7);
+          }
+
+          .info {
+            margin-left: rem(80);
+            margin-bottom: rem(20);
+            font-size: var(--text-sm);
+
+            &__type {
+              font-size: var(--text-base);
+            }
+          }
+        }
+      }
+    }
+  }
 }
