@@ -1,0 +1,104 @@
+@use "../helpers" as *;
+.portfolio {
+  &__title {
+    font-size: var(--text-base);
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    margin-bottom: rem(27);
+
+    span {
+      display: block;
+      margin-bottom: rem(4);
+    }
+  }
+
+  &__holder {
+    .project {
+      position: sticky;
+      top: 0;
+
+      &__image {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        position: relative;
+        img {
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 100%;
+          background-color: var($clr-bg);
+          opacity: 0.41;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      &__label {
+        width: fit-content;
+        font-size: var(--text-base);
+        font-weight: bold;
+        position: absolute;
+        top: 5%;
+        left: rem(20);
+        &::after {
+          content: "";
+          width: 90%;
+          height: rem(3);
+          background-color: var($clr-p);
+          position: absolute;
+          top: 105%;
+          left: 0;
+        }
+      }
+
+      &__number {
+        width: fit-content;
+        font-size: var(--text-base);
+        font-weight: bold;
+        position: absolute;
+        top: 5%;
+        right: rem(20);
+
+        span {
+          color: var($clr-p);
+        }
+      }
+
+      &__info {
+        width: 200px;
+        position: absolute;
+        bottom: 5%;
+        left: rem(20);
+
+        .pro-logo {
+          width: rem(110);
+          height: rem(60.79);
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+
+        .info {
+          margin-left: rem(40);
+          font-size: var(--text-xxs);
+          width: fit-content;
+          font-weight: bold;
+          text-transform: capitalize;
+
+          &__type {
+            font-size: var(--text-xs);
+            color: var($clr-p);
+          }
+        }
+      }
+    }
+  }
+}

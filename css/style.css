@@ -616,4 +616,98 @@ button {
   .about__labels .scroller .label {
     font-size: var(--text-sm);
   }
+}
+
+.portfolio__title {
+  font-size: var(--text-base);
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  margin-bottom: 1.6875rem;
+}
+.portfolio__title span {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.portfolio__holder .project {
+  position: sticky;
+  top: 0;
+}
+.portfolio__holder .project__image {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+.portfolio__holder .project__image img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.portfolio__holder .project__image::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg);
+  opacity: 0.41;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.portfolio__holder .project__label {
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: var(--text-base);
+  font-weight: bold;
+  position: absolute;
+  top: 5%;
+  left: 1.25rem;
+}
+.portfolio__holder .project__label::after {
+  content: "";
+  width: 90%;
+  height: 0.1875rem;
+  background-color: var(--color-primary);
+  position: absolute;
+  top: 105%;
+  left: 0;
+}
+.portfolio__holder .project__number {
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: var(--text-base);
+  font-weight: bold;
+  position: absolute;
+  top: 5%;
+  right: 1.25rem;
+}
+.portfolio__holder .project__number span {
+  color: var(--color-primary);
+}
+.portfolio__holder .project__info {
+  width: 200px;
+  position: absolute;
+  bottom: 5%;
+  left: 1.25rem;
+}
+.portfolio__holder .project__info .pro-logo {
+  width: 6.875rem;
+  height: 3.799375rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.portfolio__holder .project__info .info {
+  margin-left: 2.5rem;
+  font-size: var(--text-xxs);
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.portfolio__holder .project__info .info__type {
+  font-size: var(--text-xs);
+  color: var(--color-primary);
 }/*# sourceMappingURL=style.css.map */
