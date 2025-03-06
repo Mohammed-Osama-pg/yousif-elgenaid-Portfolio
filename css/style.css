@@ -803,6 +803,11 @@ button {
   display: grid;
   gap: 1.25rem;
 }
+.gallery__grid .item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
 .gallery__grid .item__title {
   font-size: 1.1875rem;
   font-weight: bold;
@@ -826,31 +831,4 @@ button {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-}
-@media (width >= 48em) {
-  .gallery__title {
-    font-size: 4.3125rem;
-    margin-bottom: 1.5625rem;
-  }
-  .gallery__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .gallery__grid .item-2 {
-    grid-row: span 2;
-  }
-  .gallery__grid .item-6, .gallery__grid .item-8, .gallery__grid .item-9 {
-    transform: translateY(-90px);
-  }
-  .gallery__grid .item-10 {
-    transform: translateY(-205px);
-  }
-  .gallery__grid .item-11 {
-    transform: translateY(-70px);
-  }
-  .gallery__grid .item-12 {
-    grid-column: span 2;
-  }
-  .gallery__grid .item-13, .gallery__grid .item-14 {
-    transform: translateY(-205px);
-  }
 }/*# sourceMappingURL=style.css.map */
