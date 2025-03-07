@@ -92,4 +92,19 @@
       }
     }
   }
+  @include breakpoint("xl") {
+    &__grid {
+      .item {
+        &__title {
+          max-width: 85%;
+          font-size: rem(48);
+        }
+        &-1 {
+          .item__p {
+            font-size: rem(24);
+          }
+        }
+      }
+    }
+  }
 }

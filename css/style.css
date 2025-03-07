@@ -875,6 +875,15 @@ button {
     justify-content: space-between;
   }
 }
+@media (width >= 85.5em) {
+  .gallery__grid .item__title {
+    max-width: 85%;
+    font-size: 3rem;
+  }
+  .gallery__grid .item-1 .item__p {
+    font-size: 1.5rem;
+  }
+}
 
 .footer {
   min-height: 8.5rem;
