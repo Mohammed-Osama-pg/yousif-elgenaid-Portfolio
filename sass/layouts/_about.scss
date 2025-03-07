@@ -5,7 +5,7 @@
   flex-direction: column;
   padding-block: rem(20);
   position: relative;
-  max-width: rem(1330);
+  max-width: rem(1500);
   margin-inline: auto;
 
   &__title {
@@ -119,10 +119,10 @@
       align-items: center;
       gap: rem(16);
       margin-bottom: rem(15);
-      animation: scroll-left 10s linear infinite;
+      animation: scroll-left 40s linear infinite;
       &:first-child {
-        transform: translateX(calc(-50% - 8px));
-        animation: scroll-right 10s linear infinite;
+        transform: translateX(calc(-33.4%));
+        animation: scroll-right 40s linear infinite;
       }
 
       .label {

@@ -111,7 +111,7 @@ button {
 }
 @keyframes scroll-left {
   to {
-    transform: translateX(calc(-50% - 8px));
+    transform: translateX(-33.4%);
   }
 }
 @keyframes scroll-right {
@@ -409,7 +409,7 @@ button {
   flex-direction: column;
   padding-block: 1.25rem;
   position: relative;
-  max-width: 83.125rem;
+  max-width: 93.75rem;
   margin-inline: auto;
 }
 .about__title {
@@ -516,11 +516,11 @@ button {
   align-items: center;
   gap: 1rem;
   margin-bottom: 0.9375rem;
-  animation: scroll-left 10s linear infinite;
+  animation: scroll-left 40s linear infinite;
 }
 .about__labels .scroller:first-child {
-  transform: translateX(calc(-50% - 8px));
-  animation: scroll-right 10s linear infinite;
+  transform: translateX(-33.4%);
+  animation: scroll-right 40s linear infinite;
 }
 .about__labels .scroller .label {
   opacity: 0.45;

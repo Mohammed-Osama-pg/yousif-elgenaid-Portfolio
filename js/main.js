@@ -21,14 +21,17 @@ heroBgScroller.forEach((scroller) => {
 });
 
 // about Section animation
-const aboutScrollers = document.querySelectorAll(".about__lables .scroller");
+const aboutScrollers = document.querySelectorAll(".about__labels .scroller");
+
 aboutScrollers.forEach((scroller) => {
   const ScrollerItem = Array.from(scroller.children);
-  ScrollerItem.forEach((Item) => {
-    const dublicateItem = Item.cloneNode(true);
-    dublicateItem.setAttribute("aria-hidden", "true");
-    scroller.appendChild(dublicateItem);
-  });
+  for (let i = 0; i < 2; i++) {
+    ScrollerItem.forEach((Item) => {
+      const dublicateItem = Item.cloneNode(true);
+      dublicateItem.setAttribute("aria-hidden", "true");
+      scroller.appendChild(dublicateItem);
+    });
+  }
 });
 
 // Create custom Cursor
