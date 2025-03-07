@@ -874,4 +874,45 @@ button {
   .gallery__grid .item-1 {
     justify-content: space-between;
   }
+}
+
+.footer {
+  min-height: 8.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 0.9375rem;
+  width: 100%;
+}
+.footer__img {
+  height: 100%;
+  max-width: 80vw;
+  padding-block: 1.25rem;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0.4;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.footer__img:first-child {
+  left: 10vw;
+}
+.footer__img:nth-child(2) {
+  display: none;
+  right: 10vw;
+  transform: translateY(-50%) rotateY(180deg);
+}
+.footer__img svg {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left;
+     object-position: left;
+}
+@media (width >= 62em) {
+  .footer__img:nth-child(2) {
+    display: block;
+  }
 }/*# sourceMappingURL=style.css.map */
