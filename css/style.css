@@ -901,6 +901,7 @@ button {
   padding-block: 1.25rem;
   overflow: hidden;
   position: absolute;
+  z-index: -1;
   opacity: 0.4;
   top: 50%;
   transform: translateY(-50%);
