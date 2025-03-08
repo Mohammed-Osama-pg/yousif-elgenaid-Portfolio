@@ -715,7 +715,7 @@ button {
 .portfolio__holder .project__info {
   width: 200px;
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
   left: 1.25rem;
 }
 .portfolio__holder .project__info .pro-logo {
@@ -752,7 +752,7 @@ button {
   .portfolio__holder .project__info {
     width: 400px;
     left: 1.875rem;
-    bottom: 7%;
+    bottom: 10%;
   }
   .portfolio__holder .project__info .pro-logo {
     width: 13.5675rem;
