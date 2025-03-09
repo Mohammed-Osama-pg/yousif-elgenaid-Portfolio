@@ -186,4 +186,10 @@
       }
     }
   }
+
+  @include breakpoint("xl") {
+    &__title {
+      font-size: rem(60);
+    }
+  }
 }

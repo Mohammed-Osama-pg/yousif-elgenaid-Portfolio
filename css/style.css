@@ -787,6 +787,11 @@ button {
     left: 3.75rem;
   }
 }
+@media (width >= 85.5em) {
+  .portfolio__title {
+    font-size: 3.75rem;
+  }
+}
 
 .gallery {
   padding-block: 1.5625rem;
