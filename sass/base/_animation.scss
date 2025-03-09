@@ -27,3 +27,13 @@
     transform: translateX(0);
   }
 }
+
+@keyframes fade-out {
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}

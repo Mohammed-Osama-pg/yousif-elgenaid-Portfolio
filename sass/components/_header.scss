@@ -11,6 +11,11 @@
   justify-content: center;
   transform: translateY(-270px);
   animation: show 3s ease-in-out 1 forwards;
+
+  &.hero-animation {
+    animation-play-state: paused;
+  }
+
   .logo {
     font-size: rem(25);
     font-weight: bold;

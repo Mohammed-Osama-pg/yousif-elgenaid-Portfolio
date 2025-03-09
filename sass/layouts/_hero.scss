@@ -28,7 +28,9 @@
       gap: rem(30);
       overflow: hidden;
       animation: scroll-up 30s 2.5s linear infinite;
-      // animation-play-state: paused;
+      &.hero-animation {
+        animation-play-state: paused;
+      }
 
       .card {
         width: 82.5vw;
@@ -114,6 +116,10 @@
     opacity: 0;
     transform: translateY(150vh);
     animation: show 2.5s ease-in-out forwards;
+    &.hero-animation {
+      animation-play-state: paused;
+    }
+
     @include breakpoint("md") {
       width: rem(400);
     }
@@ -193,6 +199,9 @@
     font-size: var(--text-xxs);
     transform: translateY(50vh);
     animation: show 2.5s ease-in-out forwards;
+    &.hero-animation {
+      animation-play-state: paused;
+    }
 
     @include breakpoint("md") {
       font-size: rem(20);
