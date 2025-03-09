@@ -286,6 +286,9 @@ button {
   overflow: hidden;
   aspect-ratio: 16/9;
 }
+.hero__bg-scroller .inner-scroller .card.hero-animation {
+  animation-play-state: paused;
+}
 @media (width >= 48em) {
   .hero__bg-scroller .inner-scroller .card {
     width: 40.5vw;

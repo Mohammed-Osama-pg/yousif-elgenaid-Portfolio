@@ -37,6 +37,10 @@
         border-radius: 10px;
         overflow: hidden;
         aspect-ratio: 16/9;
+        &.hero-animation {
+          animation-play-state: paused;
+        }
+
         @include breakpoint("md") {
           width: 40.5vw;
         }
