@@ -37,10 +37,6 @@
         border-radius: 10px;
         overflow: hidden;
         aspect-ratio: 16/9;
-        &.hero-animation {
-          animation-play-state: paused;
-        }
-
         @include breakpoint("md") {
           width: 40.5vw;
         }
@@ -54,10 +50,16 @@
         .card:first-child {
           transform: translateY(calc(-100% + -731px));
           animation: show 2.5s ease-in-out forwards;
+          &.hero-animation {
+            animation-play-state: paused;
+          }
         }
         .card:not(:first-child) {
           transform: translateY(calc(100% + 100vh));
           animation: show 2.5s ease-in-out forwards;
+          &.hero-animation {
+            animation-play-state: paused;
+          }
         }
         @include breakpoint("md") {
           display: flex;
@@ -77,10 +79,16 @@
         .card[aria-hidden="true"] {
           transform: translateY(calc(100% + 130vh));
           animation: show 2.5s ease-in-out 0.2s forwards;
+          &.hero-animation {
+            animation-play-state: paused;
+          }
         }
         .card[aria-hidden="true"]:nth-child(6) {
           transform: translateY(calc(-100% + 100vh));
           animation: show 2.5s ease-in-out 0.1s forwards;
+          &.hero-animation {
+            animation-play-state: paused;
+          }
         }
 
         @include breakpoint("md") {
@@ -96,10 +104,16 @@
         .card:first-child {
           transform: translateY(calc(-100% + -731px));
           animation: show 2.5s ease-in-out forwards;
+          &.hero-animation {
+            animation-play-state: paused;
+          }
         }
         .card:not(:first-child) {
           transform: translateY(calc(100% + 100vh));
           animation: show 2.5s ease-in-out forwards;
+          &.hero-animation {
+            animation-play-state: paused;
+          }
         }
         @include breakpoint("md") {
           display: flex;

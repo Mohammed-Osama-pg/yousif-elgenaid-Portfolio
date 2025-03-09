@@ -286,9 +286,6 @@ button {
   overflow: hidden;
   aspect-ratio: 16/9;
 }
-.hero__bg-scroller .inner-scroller .card.hero-animation {
-  animation-play-state: paused;
-}
 @media (width >= 48em) {
   .hero__bg-scroller .inner-scroller .card {
     width: 40.5vw;
@@ -306,9 +303,15 @@ button {
   transform: translateY(calc(-100% - 731px));
   animation: show 2.5s ease-in-out forwards;
 }
+.hero__bg-scroller .inner-scroller--left .card:first-child.hero-animation {
+  animation-play-state: paused;
+}
 .hero__bg-scroller .inner-scroller--left .card:not(:first-child) {
   transform: translateY(calc(100% + 100vh));
   animation: show 2.5s ease-in-out forwards;
+}
+.hero__bg-scroller .inner-scroller--left .card:not(:first-child).hero-animation {
+  animation-play-state: paused;
 }
 @media (width >= 48em) {
   .hero__bg-scroller .inner-scroller--left {
@@ -331,9 +334,15 @@ button {
   transform: translateY(calc(100% + 130vh));
   animation: show 2.5s ease-in-out 0.2s forwards;
 }
+.hero__bg-scroller .inner-scroller--center .card[aria-hidden=true].hero-animation {
+  animation-play-state: paused;
+}
 .hero__bg-scroller .inner-scroller--center .card[aria-hidden=true]:nth-child(6) {
   transform: translateY(calc(-100% + 100vh));
   animation: show 2.5s ease-in-out 0.1s forwards;
+}
+.hero__bg-scroller .inner-scroller--center .card[aria-hidden=true]:nth-child(6).hero-animation {
+  animation-play-state: paused;
 }
 @media (width >= 48em) {
   .hero__bg-scroller .inner-scroller--center {
@@ -352,9 +361,15 @@ button {
   transform: translateY(calc(-100% - 731px));
   animation: show 2.5s ease-in-out forwards;
 }
+.hero__bg-scroller .inner-scroller--right .card:first-child.hero-animation {
+  animation-play-state: paused;
+}
 .hero__bg-scroller .inner-scroller--right .card:not(:first-child) {
   transform: translateY(calc(100% + 100vh));
   animation: show 2.5s ease-in-out forwards;
+}
+.hero__bg-scroller .inner-scroller--right .card:not(:first-child).hero-animation {
+  animation-play-state: paused;
 }
 @media (width >= 48em) {
   .hero__bg-scroller .inner-scroller--right {

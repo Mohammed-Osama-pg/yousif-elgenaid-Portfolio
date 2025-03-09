@@ -6,19 +6,6 @@ if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   });
 }
 
-// !-- Preload functions ----------------------------------
-// call all animation element
-let preLoade = document.querySelector(".loading");
-let allAnimation = document.querySelectorAll(".hero-animation");
-console.log(preLoade);
-// *Create pre-load fuction
-window.addEventListener("load", () => {
-  preLoade.classList.add("fade-out");
-  allAnimation.forEach(function (ele) {
-    ele.style.animationPlayState = "running";
-  });
-});
-
 // Hero Section animation
 const heroBgScroller = document.querySelectorAll(
   ".hero__bg-scroller .inner-scroller"
@@ -84,4 +71,17 @@ parents.forEach((parent) => {
   parent.addEventListener("mouseenter", showCursor);
   parent.addEventListener("mouseleave", hideCursor);
   parent.addEventListener("mousemove", updateCursorPosition);
+});
+
+// !-- Preload functions ----------------------------------
+// call all animation element
+let preLoade = document.querySelector(".loading");
+let allAnimation = document.querySelectorAll(".hero-animation");
+
+// *Create pre-load fuction
+window.addEventListener("load", () => {
+  preLoade.classList.add("fade-out");
+  allAnimation.forEach(function (ele) {
+    ele.style.animationPlayState = "running";
+  });
 });
