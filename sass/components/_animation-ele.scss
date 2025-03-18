@@ -1,0 +1,11 @@
+@use "../helpers" as *;
+
+.show-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: var($clr-bg);
+  z-index: 4;
+}
