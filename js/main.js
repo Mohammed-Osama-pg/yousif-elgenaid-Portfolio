@@ -85,10 +85,3 @@ window.addEventListener("load", () => {
     ele.style.animationPlayState = "running";
   });
 });
-
-// !-- LocomotiveScroll ----------------------------------
-const scroll = new LocomotiveScroll({
-  el: document.querySelector("body"), // Target your main wrapper
-  smooth: true,
-  lerp: 0.05, // Lower = smoother, higher = faster
-});

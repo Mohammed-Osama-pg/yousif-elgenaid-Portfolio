@@ -44,16 +44,3 @@ button {
   border: none;
   background-color: transparent;
 }
-
-[data-scroll-container] {
-  position: relative;
-}
-
-[data-scroll-section] {
-  min-height: 100vh;
-  will-change: transform; /* Prevents flickering */
-}
-
-[data-scroll] {
-  transition: transform 0.2s ease-out;
-}
