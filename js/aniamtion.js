@@ -27,7 +27,7 @@ gsap.to(".show-text", {
   scrollTrigger: {
     trigger: ".show-text", // Element that triggers animation
     start: "top 80%", // Start when top of .box reaches 80% of viewport
-    end: "top -100%", // End when top of .box reaches 30% of viewport
+    end: "top 0%", // End when top of .box reaches 30% of viewport
     scrub: true, // Smooth animation as user scrolls
   },
 });
